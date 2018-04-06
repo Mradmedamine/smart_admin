@@ -17,6 +17,9 @@ body.fixed-nav {
   min-height: calc(100vh - 56px);
   padding-top: 1rem; }
 
+.error, .has-error {
+  color: red; }
+
 .scroll-to-top {
   position: fixed;
   right: 15px;
@@ -57,7 +60,7 @@ body.fixed-nav {
     content: '\f107';
     font-family: 'FontAwesome'; }
   #mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse.collapsed:after {
-    content: '\f105'; }
+    content: '\f107'; }
   #mainNav .navbar-collapse .navbar-sidenav .sidenav-second-level,
   #mainNav .navbar-collapse .navbar-sidenav .sidenav-third-level {
     padding-left: 0; }
@@ -81,7 +84,7 @@ body.fixed-nav {
     #mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link:after {
       float: right;
       width: auto;
-      content: '\f105';
+      content: '\f107';
       border: none;
       font-family: 'FontAwesome'; }
     #mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link .indicator {
@@ -322,7 +325,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   max-width: 25rem; }
 
 .card-register {
-  max-width: 40rem; }
+  max-width: 30rem; }
 
 footer.sticky-footer {
   position: absolute;

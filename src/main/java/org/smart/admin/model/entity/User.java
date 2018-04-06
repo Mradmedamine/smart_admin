@@ -14,12 +14,31 @@ import javax.persistence.Transient;
 @Table(name = "user")
 public class User extends BaseEntity {
 
+	private String fullname;
+	private String email;
 	private String username;
 	private String password;
 	private String passwordConfirm;
 	private Set<Role> roles;
 
-	@Column(unique=true)
+	public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullName) {
+		this.fullname = fullName;
+	}
+
+	@Column(unique = true)
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	@Column(unique = true)
 	public String getUsername() {
 		return username;
 	}

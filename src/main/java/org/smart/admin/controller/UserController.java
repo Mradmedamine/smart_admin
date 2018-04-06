@@ -1,4 +1,4 @@
-package org.smart.admin.controller.web;
+package org.smart.admin.controller;
 
 import java.util.Locale;
 
@@ -48,15 +48,11 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Model model, String error, String logout, Locale locale) {
+	public String login(Model model, String error, Locale locale) {
 		Object[] args = new Object[]{};
 		if (error != null) {
 			String loginFailureMessage = messageSource.getMessage("common.login.failure", args, locale);
 			model.addAttribute("error", loginFailureMessage);
-		}
-		if (logout != null) {
-			String logoutSuccessMessage = messageSource.getMessage("common.logout.success", args, locale);
-			model.addAttribute("message", logoutSuccessMessage);
 		}
 		return "login";
 	}
