@@ -25,6 +25,10 @@ body.fixed-nav {
   padding-top: 1rem;
 }
 
+.error , .has-error {
+	color: red
+}
+
 // Scroll to top button
 .scroll-to-top {
   position: fixed;

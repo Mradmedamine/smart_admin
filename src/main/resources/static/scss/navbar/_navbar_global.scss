@@ -19,7 +19,7 @@
         font-family: 'FontAwesome';
       }
       .nav-link-collapse.collapsed:after {
-        content: '\f105';
+        content: '\f107';
       }
       .sidenav-second-level,
       .sidenav-third-level {
@@ -51,13 +51,9 @@
         min-width: 45px;
         &:after {
           float: right;
-
           width: auto;
-
-          content: '\f105';
-
+          content: '\f107';
           border: none;
-
           font-family: 'FontAwesome';
         }
         .indicator {
@@ -72,9 +68,7 @@
       }
       .dropdown-menu > .dropdown-item > .dropdown-message {
         overflow: hidden;
-
         max-width: none;
-
         text-overflow: ellipsis;
       }
     }

@@ -1,4 +1,4 @@
-package org.smart.admin.controller.web;
+package org.smart.admin.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
