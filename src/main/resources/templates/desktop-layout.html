@@ -4,17 +4,20 @@
 		xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <head>
 	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Smart Administration</title>
+	<title>Smart Admin</title>
 	<!-- Bootstrap core CSS-->
 	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom fonts for this template-->
 	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<!-- Page level plugin CSS-->
 	<link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+	<!-- France Map -->
+	<link href="vendor/jqvmap.css" media="screen" rel="stylesheet" type="text/css" />
 	<!-- Custom styles for this template-->
 	<link href="css/sb-admin.css" rel="stylesheet">
 </head>
@@ -52,16 +55,13 @@
     <script src="vendor/datatables/jquery.dataTables.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js"></script>
+    <script src="js/sb-admin.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.js"></script>
     <script src="js/sb-admin-charts.js"></script>
     
         <!---- UCA ---->
     <th:block th:include="i18n::content"></th:block>
-    
-	<script th:src="@{/js/jquery.extend.js}" ></script>
-	<script th:src="@{/js/desktop.js}" ></script>
 		
 	<th:block layout:fragment="js-import"></th:block>
 	
