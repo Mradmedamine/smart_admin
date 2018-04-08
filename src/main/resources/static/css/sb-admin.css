@@ -38,6 +38,12 @@ body.fixed-nav {
   .scroll-to-top i {
     font-weight: 800; }
 
+.badge {
+  font-size: 92% !important;
+  line-height: 1.5 !important;
+  font-weight: 600 !important;
+  width: 80px; }
+
 .smaller {
   font-size: 0.7rem; }
 
