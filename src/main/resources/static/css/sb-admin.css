@@ -327,6 +327,11 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 .card-register {
   max-width: 30rem; }
 
+.card-login .title, .card-register .title {
+  color: #6c757d;
+  font-size: 1.25rem;
+  vertical-align: sub; }
+
 footer.sticky-footer {
   position: absolute;
   right: 0;

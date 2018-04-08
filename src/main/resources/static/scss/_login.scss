@@ -5,3 +5,11 @@
 .card-register {
   max-width: 30rem;
 }
+
+.card-login, .card-register {
+	.title {
+		color: #6c757d;    
+		font-size: 1.25rem;
+		vertical-align: sub;
+	}
+}

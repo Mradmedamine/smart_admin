@@ -7,7 +7,10 @@
 
 <th:block layout:fragment="basic-content">
 	<div class="card card-register mx-auto mt-5">
-		<div class="card-header">Register an Account</div>
+		<div class="card-header">
+			<img src="/images/logo.png" width="37" alt="Smart admin" /> &nbsp; 
+    		<span class="title">Smart Admin</span>
+		</div>
 		<div class="card-body">
 			<form role="form" method="POST" th:object="${userForm}" class="form-login">
 				<fieldset>
@@ -18,7 +21,7 @@
 						    	<errors th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}"></errors>
 						  	</div>
 					         <div th:class="|col-md-7 ${#fields.hasErrors('email') ? 'has-error' : ''}|">
-					            <input type="text" th:field="*{email}" class="form-control" placeholder="email" autofocus="true"></input>
+					            <input type="text" th:field="*{email}" class="form-control" placeholder="Email" autofocus="true"></input>
 					            <errors th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></errors>
 					        </div>
 					    </div>
@@ -43,7 +46,7 @@
 					        </div>
 					     </div>
 					 </div>
-			     	<button class="btn btn-primary btn-block" type="submit" th:text="#{common.submit}"></button>
+			     	<button class="btn btn-primary btn-block" type="submit">Register</button>
 			    </fieldset>
 			</form>
 			<div class="text-center">
