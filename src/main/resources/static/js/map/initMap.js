@@ -1,5 +1,6 @@
 $(document).ready(
 		function() {
+
 			$('#francemap').vectorMap(
 					{
 						map : 'france_fr',
@@ -12,10 +13,23 @@ $(document).ready(
 						enableZoom : true,
 						showTooltip : true,
 						onRegionClick : function(element, code, region) {
-							var message = 'Département : "' + region
-									+ '" || Code : "' + code + '"';
+							$.ajax({
+							    type : 'GET',
+							    url : '/department/' + code,
+							    success : function(result) {
+							    	$('#departmentInfoWidget').fadeOut(500, function()
+					    			{     
+					    			    $(this).replaceWith(result).fadeIn(500);
+					    			    $('#departmentInfoWidget #region').html(region);
+					    			    $('#departmentInfoWidget .selectpicker').selectpicker('refresh');
+					    			});
 
-							alert(message);
+							    },
+							    error : function(error) {
+							    	toastr['error']("error occured ");
+							    	$('#toast-container .toast-error').show();
+							    }
+							});
 						}
 					});
 		});
