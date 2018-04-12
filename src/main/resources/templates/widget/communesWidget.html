@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<th:block th:fragment="content">
+	<div id="communesWidget" class="card mb-3">
+		<div class="card-header">
+			<i class="fa fa-university"></i> &nbsp;Communes
+		</div>
+		<div class="list-group list-group-flush small">
+			<input type="text" id="searchInput" onkeyup="myFunction()" placeholder="Search for names..">
+			<th:block th:each="commune : ${department?.communes}" th:with="communeName=${commune?.properties?.nomCommune}">
+				<a href="#" class="list-group-item list-group-item-action communeItem">
+					<span th:text="${communeName}"></span>
+				</a> 
+			</th:block>
+			<a id="loadMore" class="list-group-item list-group-item-action card-footer text-muted" href="#">
+				View More...
+			</a>
+		</div>
+	</div>
+</th:block>

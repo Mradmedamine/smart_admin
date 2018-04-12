@@ -1,0 +1,32 @@
+#communesWidget {
+	#searchInput {
+	    background-image: url('/images/searchicon.png'); /* Add a search icon to input */
+	    background-position: 10px 12px; /* Position the search icon */
+	    background-repeat: no-repeat; /* Do not repeat the icon image */
+	    width: 100%; /* Full-width */
+	    padding: 12px 20px 12px 40px; /* Add some padding */
+	    border: 1px solid #ddd; /* Add a grey border */
+	}
+	.communeItem {
+	    display:none;
+	}
+	a, a:visited {
+	    color: #33739E;
+	    text-decoration: none;
+	    display: block;
+	}
+	a:hover {
+	    text-decoration: none;
+	}
+	#loadMore {
+	    box-shadow: 0 1px 1px #ccc;
+	    transition: all 600ms ease-in-out;
+	    -webkit-transition: all 600ms ease-in-out;
+	    -moz-transition: all 600ms ease-in-out;
+	    -o-transition: all 600ms ease-in-out;
+	}
+	#loadMore:hover {
+	    background-color: #fff;
+	    color: #33739E;
+	}
+}

@@ -27,31 +27,15 @@
 				<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 			</div>
 		</div>
-		
 		<div class="col-lg-4">
-			
 			<th:block th:include="~{widget/departmentInfoWidget}"/>
-
-			<div class="card mb-3">
-				<div class="card-header">
-					<i class="fa fa-university"></i> &nbsp;Communes
-				</div>
-				<div class="list-group list-group-flush small">
-					<th:block th:each="commune : ${department?.communes}" th:with="communeName=${commune?.properties?.nomCommune}">
-						<a class="list-group-item list-group-item-action" href="#">
-							<span th:text="${communeName}"></span>
-						</a> 
-					</th:block>
-					<a class="list-group-item list-group-item-action" href="#">View all activity...</a>
-				</div>
-				<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-			</div>
+			<th:block th:include="~{widget/communesWidget}"/>
 		</div>
 	</div>
 </th:block>
 
 <th:block layout:fragment="js-import">
-	<script src="js/map/initMap.js" type="text/javascript"></script>
+	<script src="js/index.js" type="text/javascript"></script>
 	<script src="js/map/jquery.vmap.js" type="text/javascript"></script>
 	<script src="js/map/jquery.vmap.france.js" type="text/javascript"></script>
 	<script src="js/map/jquery.vmap.colorsFrance.js" type="text/javascript"></script>
