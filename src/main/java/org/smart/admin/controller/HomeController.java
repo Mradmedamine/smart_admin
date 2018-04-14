@@ -28,4 +28,8 @@ public class HomeController {
 		return "widget/communesWidget";
 	}
 	
+	@RequestMapping(value = { "/tree" }, method = RequestMethod.GET)
+	public String treeView(Model model) {
+		return "tree";
+	}
 }

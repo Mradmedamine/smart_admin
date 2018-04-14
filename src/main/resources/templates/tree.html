@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{desktop-layout}">
+
+<th:block layout:fragment="desktop-page-content">
+
+	<!-- Breadcrumbs-->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+		<li class="breadcrumb-item">Carte</li>
+		<li class="breadcrumb-item active">Tree</li>
+	</ol>
+	<div class="row">
+		<div class="col-lg-4">
+			<div id="tree"></div>
+		</div>
+	</div>
+</th:block>
+
+<th:block layout:fragment="js-import">
+	<script src="js/tree.js" type="text/javascript"></script>
+</th:block>
+
+</html>
