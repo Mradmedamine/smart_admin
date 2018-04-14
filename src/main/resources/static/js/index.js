@@ -1,7 +1,9 @@
 $(function() {
 
+	var communesWidget = $('#communesWidget');
+
 	initCommunesList();
-	
+
 	$('#francemap').vectorMap({
 		map : 'france_fr',
 		hoverOpacity : 0.5,
@@ -22,11 +24,14 @@ $(function() {
 			type : 'GET',
 			url : '/department/' + code,
 			success : function(result) {
-				$('#departmentInfoWidget').fadeOut(500, function() {
-					$(this).replaceWith(result).fadeIn(500);
-					$('#departmentInfoWidget #region').html(region);
-					$('#departmentInfoWidget .selectpicker').selectpicker('refresh');
-				});
+				$('#departmentInfoWidget').fadeOut(
+						500,
+						function() {
+							$(this).replaceWith(result).fadeIn(500);
+							$('#departmentInfoWidget #region').html(region);
+							$('#departmentInfoWidget .selectpicker')
+									.selectpicker('refresh');
+						});
 			},
 			error : function(error) {
 				toastr['error']('error occured ');
@@ -34,10 +39,8 @@ $(function() {
 			}
 		});
 	}
-	
+
 	function initCommunesList() {
-		var communesWidget = $('#communesWidget');
-		
 		$(communesWidget).find('.communeItem').slice(0, 4).show();
 		$(communesWidget).find('#loadMore').on('click', function(e) {
 			e.preventDefault();
@@ -49,6 +52,22 @@ $(function() {
 				scrollTop : $(this).offset().top
 			}, 1500);
 		});
+	}
+
+	$(communesWidget).find('#searchInput').on('change keyup paste', function(e) {
+		filterCommunes($(this).val().toUpperCase())
+	});
+	
+	function filterCommunes(filter) {
+		var elements = $(communesWidget).find('.communeItem');
+		for (var i = 0; i < elements.length; i++) {
+			var span = elements[i].getElementsByTagName("span")[0];
+			if (span.innerHTML.toUpperCase().indexOf(filter) > -1) {
+				$(elements[i]).show();
+			} else {
+				$(elements[i]).hide();
+			}
+		}
 	}
 	
 });

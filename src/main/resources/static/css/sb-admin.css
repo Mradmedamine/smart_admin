@@ -354,7 +354,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 #communesWidget .communeItem {
   display: none; }
 #communesWidget a, #communesWidget a:visited {
-  color: #33739E;
+  color: #6c757d;
   text-decoration: none;
   display: block; }
 #communesWidget a:hover {

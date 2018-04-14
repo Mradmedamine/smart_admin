@@ -9,7 +9,6 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.smart.admin.model.json.JsonCommune;
 import org.smart.admin.model.json.JsonDepartment;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,36 +21,26 @@ public class DepartmentRepository {
 	private static ObjectMapper mapper = new ObjectMapper();
 
 	static {
-		for (Integer i = 1; i <= 95; i++) {
-			parseDepartment(String.format("%02d", i));
-		}
+		List<JsonDepartment> departmentsList = parseDepartments();
+		departmentsList.forEach((dep) -> {
+			departments.put(dep.getCode(), dep);
+		});
 	}
 
 	public static JsonDepartment getDepartment(String key) {
 		return departments.get(key);
 	}
 
-	private static void parseDepartment(String key) {
-		try {
-			JsonDepartment department = new JsonDepartment();
-			department.setCode(key);
-			department.setCommunes(parseCommunes(key));
-			departments.put(key, department);
-		} catch (Exception ex) {
-			logger.debug("Error while parsing Department " + ex);
-		}
-	}
-
-	private static List<JsonCommune> parseCommunes(String key) {
-		URL res = DepartmentRepository.class.getClassLoader().getResource("data/department/" + key + ".json");
+	private static List<JsonDepartment> parseDepartments() {
+		URL res = DepartmentRepository.class.getClassLoader().getResource("data/departments.json");
 		File file = new File(res.getFile());
-		JsonCommune[] communes = null;
+		JsonDepartment[] departments = null;
 		try {
-			communes = mapper.readValue(file, JsonCommune[].class);
+			departments = mapper.readValue(file, JsonDepartment[].class);
 		} catch (Exception ex) {
 			logger.debug("Error while parsing Communes " + ex);
 		}
-		return Arrays.asList(communes);
+		return Arrays.asList(departments);
 	}
 
 }
