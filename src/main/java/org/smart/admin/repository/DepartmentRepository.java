@@ -2,7 +2,6 @@ package org.smart.admin.repository;
 
 import java.io.File;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,28 +18,27 @@ public class DepartmentRepository {
 
 	private static Map<String, JsonDepartment> departments = new HashMap<>();
 	private static ObjectMapper mapper = new ObjectMapper();
-
 	static {
-		List<JsonDepartment> departmentsList = parseDepartments();
-		departmentsList.forEach((dep) -> {
-			departments.put(dep.getCode(), dep);
-		});
+		initDepartments();
 	}
 
 	public static JsonDepartment getDepartment(String key) {
 		return departments.get(key);
 	}
 
-	private static List<JsonDepartment> parseDepartments() {
+	private static void initDepartments() {
 		URL res = DepartmentRepository.class.getClassLoader().getResource("data/departments.json");
 		File file = new File(res.getFile());
-		JsonDepartment[] departments = null;
+		List<JsonDepartment> departmentsList = null;
 		try {
-			departments = mapper.readValue(file, JsonDepartment[].class);
+			departmentsList = mapper.readValue(file,
+					mapper.getTypeFactory().constructCollectionType(List.class, JsonDepartment.class));
+			departmentsList.forEach((dep) -> {
+				departments.put(dep.getCode(), dep);
+			});
 		} catch (Exception ex) {
 			logger.debug("Error while parsing Communes " + ex);
 		}
-		return Arrays.asList(departments);
 	}
 
 }
