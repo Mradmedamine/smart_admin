@@ -16,10 +16,16 @@ public class HomeController {
 		return "index";
 	}
 
-	@RequestMapping(value = { "/department/{departmentCode}" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/department/info/{departmentCode}" }, method = RequestMethod.GET)
 	public String getDepartmentInfo(@PathVariable String departmentCode, Model model) {
 		model.addAttribute("department", DepartmentRepository.getDepartment(departmentCode));
 		return "widget/departmentInfoWidget";
+	}
+	
+	@RequestMapping(value = { "/department/communes/{departmentCode}" }, method = RequestMethod.GET)
+	public String getCommunesWidget(@PathVariable String departmentCode, Model model) {
+		model.addAttribute("department", DepartmentRepository.getDepartment(departmentCode));
+		return "widget/communesWidget";
 	}
 	
 }

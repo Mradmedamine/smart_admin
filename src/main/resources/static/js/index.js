@@ -1,6 +1,6 @@
 $(function() {
 
-	var communesWidget = $('#communesWidget');
+	var communesWidget;
 
 	initCommunesList();
 
@@ -15,23 +15,37 @@ $(function() {
 		enableZoom : true,
 		showTooltip : true,
 		onRegionClick : function(element, code, region) {
-			updatePageComponent(code, region);
+			updatePageComponents(code, region);
 		}
 	});
 
-	function updatePageComponent(code, region) {
+	function updatePageComponents(code, region) {
+		
+		//update info Widget
 		$.ajax({
 			type : 'GET',
-			url : '/department/' + code,
+			url : '/department/info/' + code,
 			success : function(result) {
-				$('#departmentInfoWidget').fadeOut(
-						500,
-						function() {
-							$(this).replaceWith(result).fadeIn(500);
-							$('#departmentInfoWidget #region').html(region);
-							$('#departmentInfoWidget .selectpicker')
-									.selectpicker('refresh');
-						});
+				$('#departmentInfoWidget').fadeOut(500, function() {
+					$(this).replaceWith(result).fadeIn(500);
+					$('#departmentInfoWidget #region').html(region);
+				});
+			},
+			error : function(error) {
+				toastr['error']('error occured ');
+				$('#toast-container .toast-error').show();
+			}
+		});
+		
+		//update communes widget
+		$.ajax({
+			type : 'GET',
+			url : '/department/communes/' + code,
+			success : function(result) {
+				$('#communesWidget').fadeOut(500, function() {
+					$(this).replaceWith(result).fadeIn(500);
+					initCommunesList();
+				});
 			},
 			error : function(error) {
 				toastr['error']('error occured ');
@@ -41,6 +55,7 @@ $(function() {
 	}
 
 	function initCommunesList() {
+		communesWidget = $('#communesWidget');
 		$(communesWidget).find('.communeItem').slice(0, 4).show();
 		$(communesWidget).find('#loadMore').on('click', function(e) {
 			e.preventDefault();
@@ -52,11 +67,11 @@ $(function() {
 				scrollTop : $(this).offset().top
 			}, 1500);
 		});
+		
+		$(communesWidget).find('#searchInput').on('change keyup paste', function(e) {
+			filterCommunes($(this).val().toUpperCase())
+		});
 	}
-
-	$(communesWidget).find('#searchInput').on('change keyup paste', function(e) {
-		filterCommunes($(this).val().toUpperCase())
-	});
 	
 	function filterCommunes(filter) {
 		var elements = $(communesWidget).find('.communeItem');
