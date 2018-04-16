@@ -1,27 +1,40 @@
 $(function() {
 
-	$('#tree').treeview(tree);
-
-	var tree = [ {
-		text : "Parent 1",
-		nodes : [ {
-			text : "Child 1",
-			nodes : [ {
-				text : "Grandchild 1"
-			}, {
-				text : "Grandchild 2"
+	var treeData = [
+			{
+				"id" : 1,
+				"text" : "element1",
+				"children" : [ {
+					"id" : 11,
+					"text" : "element11",
+					"children" : [ {
+						"id" : 21,
+						"text" : "element21",
+						"children" : []
+					}, {
+						"id" : 22,
+						"text" : "Japan",
+						"children" : []
+					}, {
+						"id" : 23,
+						"text" : "Mongolia",
+						"children" : []
+					} ]
+				}, {
+					"id" : 12,
+					"text" : "Japan",
+					"children" : []
+				}, {
+					"id" : 13,
+					"text" : "Mongolia",
+					"children" : []
+				} ]
 			} ]
-		}, {
-			text : "Child 2"
-		} ]
-	}, {
-		text : "Parent 2"
-	}, {
-		text : "Parent 3"
-	}, {
-		text : "Parent 4"
-	}, {
-		text : "Parent 5"
-	} ];
+
+	$('#treeview').tree({
+		uiLibrary : 'bootstrap4',
+		dataSource : treeData,
+		iconsLibrary : 'fontawesome'
+	});
 
 });
