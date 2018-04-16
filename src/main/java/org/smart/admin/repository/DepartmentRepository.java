@@ -23,6 +23,7 @@ public class DepartmentRepository {
 	}
 
 	public static JsonDepartment getDepartment(String key) {
+		logger.debug("getting department with code {}", key);
 		return departments.get(key);
 	}
 
@@ -34,6 +35,7 @@ public class DepartmentRepository {
 			departmentsList = mapper.readValue(file,
 					mapper.getTypeFactory().constructCollectionType(List.class, JsonDepartment.class));
 			departmentsList.forEach((dep) -> {
+				logger.debug("added department with code {}", dep.getCode());
 				departments.put(dep.getCode(), dep);
 			});
 		} catch (Exception ex) {
