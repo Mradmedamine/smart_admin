@@ -28,7 +28,7 @@ public class DepartmentRepository {
 	}
 
 	private static void initDepartments() {
-		URL res = DepartmentRepository.class.getClassLoader().getResource("data/departments.json");
+		URL res = DepartmentRepository.class.getClassLoader().getResource("static/data/departments.data");
 		File file = new File(res.getFile());
 		List<JsonDepartment> departmentsList = null;
 		try {
