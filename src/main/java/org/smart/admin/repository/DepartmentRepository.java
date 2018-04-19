@@ -1,7 +1,6 @@
 package org.smart.admin.repository;
 
-import java.io.File;
-import java.net.URL;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.smart.admin.model.json.JsonDepartment;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.CollectionType;
 
 public class DepartmentRepository {
 
@@ -28,12 +28,12 @@ public class DepartmentRepository {
 	}
 
 	private static void initDepartments() {
-		URL res = DepartmentRepository.class.getClassLoader().getResource("static/data/departments.json");
-		File file = new File(res.getFile());
+		InputStream is = DepartmentRepository.class.getResourceAsStream("/static/data/departments.json");
 		List<JsonDepartment> departmentsList = null;
 		try {
-			departmentsList = mapper.readValue(file,
-					mapper.getTypeFactory().constructCollectionType(List.class, JsonDepartment.class));
+			CollectionType ParamType = mapper.getTypeFactory().constructCollectionType(List.class,
+					JsonDepartment.class);
+			departmentsList = mapper.readValue(is, ParamType);
 			departmentsList.forEach((dep) -> {
 				logger.debug("added department with code {}", dep.getCode());
 				departments.put(dep.getCode(), dep);
