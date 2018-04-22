@@ -12,12 +12,12 @@
 		<div class="list-group list-group-flush small">
 			<input type="text" id="searchInput" placeholder="Search for names..">
 			<th:block th:each="commune : ${department?.communes}" th:with="communeName=${commune?.nomCommune}">
-				<a href="#" class="list-group-item list-group-item-action communeItem">
+				<a th:href="@{/selection/__${commune?.codeDept}__/__${commune?.inseeCommune}__}" class="list-group-item list-group-item-action communeItem">
 					<span th:text="${communeName}"></span>
 				</a> 
 			</th:block>
 			<a id="loadMore" class="list-group-item list-group-item-action card-footer text-muted" href="#">
-				View More...
+				Voir plus ...
 			</a>
 		</div>
 	</div>

@@ -28,8 +28,8 @@ public class HomeController {
 		return "widget/communesWidget";
 	}
 	
-	@RequestMapping(value = { "/tree" }, method = RequestMethod.GET)
-	public String treeView(Model model) {
-		return "tree";
+	@RequestMapping(value = { "/selection/{departmentCode}/{inseeCommune}" }, method = RequestMethod.GET)
+	public String selection(@PathVariable String departmentCode, @PathVariable String inseeCommune, Model model) {
+		return "selection";
 	}
 }

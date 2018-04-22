@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{desktop-layout}">
+
+<th:block layout:fragment="desktop-page-content">
+
+	<!-- Breadcrumbs-->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+		<li class="breadcrumb-item">Carte</li>
+		<li class="breadcrumb-item active">Profile</li>
+	</ol>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-newspaper-o"></i>&nbsp;
+					Vous êtes ?
+				</div>
+				<div class="card-body">
+					<div class="row">
+						<ul class="selection-btn">
+							<li>
+							    <a class="btn btn-md btn-primary" href="#">
+								  	<i class="fa fa-graduation-cap fa-2x pull-left"></i>
+								  	<span>Etudiant<br>
+								  		<small>étudiant info</small>
+								  	</span>
+							  	</a> 
+							</li>
+							<li>
+								<a class="btn btn-md btn-success " href="#">
+								 	<i class="fa fa-user-md fa-2x pull-left"></i>
+								 	<span>Salarié<br>
+								 		<small>Salarié info</small>
+								 	</span>
+							 	</a> 
+							</li>
+							<li>
+								<a class="btn btn-md btn-danger " href="#">
+								 	<i class="fa fa-black-tie fa-2x pull-left"></i>
+								 	<span>Passeport Talent<br>
+								 		<small>Passeport info</small>
+								 	</span>
+							 	</a> 
+							</li>
+							<li>
+								<a class="btn btn-md btn-secondary " href="#">
+								 	<i class="fa fa-university fa-2x pull-left"></i>
+								 	<span>Chercheur<br>
+								 		<small>Chercheur info</small>
+								 	</span>
+							 	</a> 
+							</li>
+							<li>
+								<a class="btn btn-md btn-warning " href="#">
+								 	<i class="fa fa-users fa-2x pull-left"></i>
+								 	<span>Regroupement familiale<br>
+								 		<small>Regroupement familiale info</small>
+								 	</span>
+							 	</a> 
+							</li>
+						</ul>
+					</div>
+					<div id="serviceChoice" class="form-group col-lg-4" style="display : none">
+					   <label for="serviceChoiceSelect">
+					   	<small>Qu'est ce que vous voulez faire ?</small>
+					   </label>
+					   <select class="form-control" id="serviceChoiceSelect">
+					       <option>Renouveler mon titre de séjour</option>
+					       <option>demander un nouveau titre de séjour</option>
+					       <option>Echanger un permis de conduire</option>
+					       <option>Changer mon statut</option>
+					   </select>
+					 </div>
+				</div>
+				<div class="card-footer">
+					<small>Sur base de </small>
+					<a href="www.seine-saint-denis.gouv.fr"><small>www.seine-saint-denis.gouv.fr</small></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</th:block>
+
+<th:block layout:fragment="js-import">
+	<script src="/js/selection.js" type="text/javascript"></script>
+</th:block>
+
+</html>

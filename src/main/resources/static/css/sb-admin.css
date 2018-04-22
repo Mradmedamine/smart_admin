@@ -369,6 +369,23 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   background-color: #fff;
   color: #33739E; }
 
+.selection-btn {
+  float: left; }
+  .selection-btn li {
+    list-style: none;
+    float: left;
+    padding: 10px; }
+    .selection-btn li a span {
+      padding-left: 15px;
+      padding-right: 5px;
+      width: 100%;
+      display: inline-block;
+      text-align: left; }
+      .selection-btn li a span small {
+        width: 100%;
+        display: inline-block;
+        text-align: left; }
+
 footer.sticky-footer {
   position: absolute;
   right: 0;
