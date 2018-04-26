@@ -75,12 +75,17 @@ $(function() {
 	
 	function filterCommunes(filter) {
 		var elements = $(communesWidget).find('.communeItem');
-		for (var i = 0; i < elements.length; i++) {
-			var span = elements[i].getElementsByTagName("span")[0];
-			if (span.innerHTML.toUpperCase().indexOf(filter) > -1) {
-				$(elements[i]).show();
-			} else {
-				$(elements[i]).hide();
+		if(filter.trim() === '') {
+			$(elements).hide();
+			$(elements).slice(0, 4).show();
+		} else {
+			for (var i = 0; i < elements.length; i++) {
+				var span = elements[i].getElementsByTagName("span")[0];
+				if (span.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					$(elements[i]).show();
+				} else {
+					$(elements[i]).hide();
+				}
 			}
 		}
 	}
