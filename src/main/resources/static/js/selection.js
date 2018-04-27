@@ -1,7 +1,8 @@
 $(function() {
 
 	$('.selection-btn .btn').click(function(e) {
-		$('#serviceChoice').show();
+		$('#serviceChoice').hide();
+		$('#serviceChoice').show(500);
 	});
 	
 });
