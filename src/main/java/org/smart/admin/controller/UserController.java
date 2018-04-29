@@ -30,31 +30,33 @@ public class UserController {
 	@Autowired
 	private MessageSource messageSource;
 
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public String signup(Model model) {
 		model.addAttribute("userForm", new User());
-		return "register";
+		return "signup";
 	}
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
 		userValidator.validate(userForm, bindingResult);
 		if (bindingResult.hasErrors()) {
-			return "register";
+			return "signup";
 		}
 		userService.save(userForm);
 		securityService.autologin(userForm.getUsername(), userForm.getPasswordConfirm());
 		return "redirect:/";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/signin", method = RequestMethod.GET)
 	public String login(Model model, String error, Locale locale) {
-		Object[] args = new Object[]{};
+		Object[] args = new Object[] {};
 		if (error != null) {
-			String loginFailureMessage = messageSource.getMessage("common.login.failure", args, locale);
+			String errorMessageCode = error.equals("oauth") ? "common.login.failure"
+					: "common.login.invalid.credentials";
+			String loginFailureMessage = messageSource.getMessage(errorMessageCode, args, locale);
 			model.addAttribute("error", loginFailureMessage);
 		}
-		return "login";
+		return "signin";
 	}
 
 }

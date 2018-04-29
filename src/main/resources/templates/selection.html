@@ -65,21 +65,26 @@
 							</li>
 						</ul>
 					</div>
-					<div id="serviceChoice" class="form-group col-lg-4" style="display : none">
-					   <label for="serviceChoiceSelect">
-					   	<small>Qu'est ce que vous voulez faire ?</small>
-					   </label>
-					   <select class="form-control" id="serviceChoiceSelect">
-					       <option>Renouveler mon titre de séjour</option>
-					       <option>demander un nouveau titre de séjour</option>
-					       <option>Echanger un permis de conduire</option>
-					       <option>Changer mon statut</option>
-					   </select>
-					 </div>
+					<div id="serviceChoice" class="form-group" style="display : none">
+						<div class="col-lg-6">
+						   <label for="serviceChoiceSelect">
+						   	<small>Qu'est ce que vous voulez faire ?</small>
+						   </label>
+						   <select class="form-control" id="serviceChoiceSelect">
+						       <option>Renouveler mon titre de séjour</option>
+						       <option>demander un nouveau titre de séjour</option>
+						       <option>Echanger un permis de conduire</option>
+						       <option>Changer mon statut</option>
+						   </select>
+						</div>
+						<br>
+					   	<div class="col-lg-6">
+					   	   <a class="btn btn-primary" href="#">Suivant</a>
+					   	</div>
+					</div>
 				</div>
-				<div class="card-footer">
-					<small>Sur base de </small>
-					<a href="www.seine-saint-denis.gouv.fr"><small>www.seine-saint-denis.gouv.fr</small></a>
+				<div class="card-footer small text-muted">
+					<th:block th:text="${commune.nomCommune}"/> 
 				</div>
 			</div>
 		</div>

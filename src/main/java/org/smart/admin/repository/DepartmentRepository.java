@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.smart.admin.model.json.JsonCommune;
 import org.smart.admin.model.json.JsonDepartment;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,6 +26,13 @@ public class DepartmentRepository {
 	public static JsonDepartment getDepartment(String key) {
 		logger.debug("getting department with code {}", key);
 		return departments.get(key);
+	}
+
+	public static JsonCommune getCommune(String dep, String insee) {
+		JsonDepartment department = getDepartment(dep);
+		List<JsonCommune> communes = department.getCommunes();
+		return communes.stream().filter(e -> e.getInseeCommune().equals(insee)).findFirst()
+				.orElseThrow(IllegalArgumentException::new);
 	}
 
 	private static void initDepartments() {

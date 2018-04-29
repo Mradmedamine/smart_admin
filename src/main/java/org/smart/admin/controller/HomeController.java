@@ -30,6 +30,7 @@ public class HomeController {
 	
 	@RequestMapping(value = { "/selection/{departmentCode}/{inseeCommune}" }, method = RequestMethod.GET)
 	public String selection(@PathVariable String departmentCode, @PathVariable String inseeCommune, Model model) {
+		model.addAttribute("commune", DepartmentRepository.getCommune(departmentCode, inseeCommune));
 		return "selection";
 	}
 }
