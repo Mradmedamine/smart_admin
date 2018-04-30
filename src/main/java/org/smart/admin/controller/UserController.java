@@ -48,13 +48,17 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/signin", method = RequestMethod.GET)
-	public String login(Model model, String error, Locale locale) {
+	public String login(Model model, String error, String logout, Locale locale) {
 		Object[] args = new Object[] {};
 		if (error != null) {
 			String errorMessageCode = error.equals("oauth") ? "common.login.failure"
 					: "common.login.invalid.credentials";
 			String loginFailureMessage = messageSource.getMessage(errorMessageCode, args, locale);
 			model.addAttribute("error", loginFailureMessage);
+		}
+		if (logout != null) {
+			String logoutSuccessMessage = messageSource.getMessage("common.logout.success", args, locale);
+			model.addAttribute("message", logoutSuccessMessage);
 		}
 		return "signin";
 	}
