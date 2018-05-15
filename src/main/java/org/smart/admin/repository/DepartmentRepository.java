@@ -43,12 +43,18 @@ public class DepartmentRepository {
 					JsonDepartment.class);
 			departmentsList = mapper.readValue(is, ParamType);
 			departmentsList.forEach((dep) -> {
-				logger.debug("added department with code {}", dep.getCode());
-				departments.put(dep.getCode(), dep);
+				String code = extractCode(dep.getDepartment());
+				dep.setCode(code);
+				logger.debug("added department with code {}", code);
+				departments.put(code, dep);
 			});
 		} catch (Exception ex) {
 			logger.debug("Error while parsing Communes " + ex);
 		}
+	}
+
+	private static String extractCode(String department) {
+		return department.substring(department.indexOf('(') + 1 , department.indexOf(')'));
 	}
 
 }

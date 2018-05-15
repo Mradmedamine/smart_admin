@@ -43,7 +43,7 @@ public class SocialConfig implements SocialConfigurer {
 
 		// Twitter
 		TwitterConnectionFactory tfactory = new TwitterConnectionFactory(//
-				env.getProperty("twitter.consumer.key"), 
+				env.getProperty("twitter.consumer.key"), //
 				env.getProperty("twitter.consumer.secret"));
 		// tfactory.setScope(env.getProperty("twitter.scope"));
 		cfConfig.addConnectionFactory(tfactory);
