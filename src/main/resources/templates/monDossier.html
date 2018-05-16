@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{desktop-layout}">
+        
+<head lang="en">
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+	<div id="dossier-container" layout:fragment="desktop-page-content"> 
+		<ol class="breadcrumb">
+	        <li class="breadcrumb-item active">
+	           <i class="fa fa-newspaper-o"></i> Mon Dossier
+	        </li>
+	    </ol>
+	    <hr class="mt-2">
+		<div class="col-lg-8">
+			<th:block th:each="document : ${documents}">
+				<th:block th:include="~{widget/documentWidget::content (${document})}"></th:block>
+			</th:block>
+		</div>
+	</div>
+
+	<th:block layout:fragment="modals"> 	
+		<th:block th:include="~{modules/widget/newDocumentModal::content}">
+		</th:block>
+	</th:block>
+
+	<th:block layout:fragment="js-import"> 	
+		<script th:src="@{/js/monDossier.js}" ></script> 
+		<script th:inline="javascript"> 
+		</script>
+	</th:block>
+	
+</body>
+</html>

@@ -1,0 +1,24 @@
+#document-container {
+	.card {
+		border: 0px;
+		cursor: pointer;
+		color: #777;
+		background-color: rgba(0,0,0,.03);
+		.card-body {
+			padding: 0.5rem 1rem 1.1rem 1rem;
+		}
+		.btn {
+			background-color: rgba(0,0,0,.03);
+			color: #777;
+			border-top-left-radius: 0rem;
+    		border-bottom-right-radius: 0rem;
+    		border-bottom-left-radius: 0.5rem;
+		}
+		.btn:hover {
+			background-color: rgba(0,0,0,.07);
+		}
+	}
+	
+}
+	
+	

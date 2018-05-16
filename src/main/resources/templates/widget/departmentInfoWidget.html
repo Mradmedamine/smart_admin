@@ -12,16 +12,20 @@
 		<div class="list-group list-group-flush small">
 			<a class="list-group-item list-group-item-action" href="#">
 				<span class="badge badge-primary mr-5">Région</span>
-				<span id="region"></span>
+				<span id="region" th:text="${department.department}"></span>
 			</a> 
 			<a class="list-group-item list-group-item-action" href="#">
 				<span class="badge badge-success mr-5">Population</span>
-					850.000
+					<th:block th:text="${department.population}"/> h
 			</a> 
 			<a class="list-group-item list-group-item-action" href="#">
 				<span class="badge badge-secondary mr-5">Superficie</span>
-				   450.000 m
+				   <th:block th:text="${department.superficie}"/> km2
 			</a> 
+			<a class="list-group-item list-group-item-action" href="#">
+				<span class="badge badge-secondary mr-5">Densite</span>
+				   <th:block th:text="${department.densite}"/>/km2
+			</a>
 		</div>
 	</div>
 	

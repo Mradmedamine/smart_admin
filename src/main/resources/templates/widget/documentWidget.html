@@ -11,27 +11,20 @@
  
  <th:block th:fragment="content (document)">
 		<div id="document-container" class="col-lg-3" th:attr="data-document-id=${document.id}">
-	         <div class="panel panel-default">
-	             <div class="panel-body">
+	    	<div class="card">
+	    		<div>
+					<a class="btn btn-default fa fa-trash-o pull-right"></a>
+				</div>
+	            <div class="card-body">
+	                <div class="centered-text">
+				  		<img src="/images/logo.png" width="48" alt="Smart admin">
+				    </div>
 					<div class="centered-text">
-					    <i class="fa fa-file-pdf-o fa-5x"></i>
+						<small th:text="${document.physicalFile.fileName}"></small>
 					</div>
-					<div class="centered-text">
-						<th:block th:text="${document.physicalFile.fileName}"></th:block>
-					</div>
-	             </div>
-	             <div class="panel-footer">
-	                 <a th:href="@{/documents/__${document.id}__}" target="_blank" class="btn btn-default btn-block">
-	                 	<i class="fa fa-download"></i>  
-	                 	<th:block th:text="#{common.download}"></th:block>
-	                 </a>
-	                 <a href="#" class="btn btn-default btn-block btn-delete">
-	                 	<i class="fa fa-trash-o"></i>
-	                 	<th:block th:text="#{common.delete}"></th:block>
-	                 </a>
-	             </div>
-	         </div>
-	    </div>
+		        </div>
+	        </div> 
+		</div>
 	</th:block>    
 </body>
 </html>
