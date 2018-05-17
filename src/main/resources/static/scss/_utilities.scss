@@ -3,6 +3,10 @@
   font-size: 0.7rem;
 }
 
+.hidden {
+  display: none !important;
+}
+
 // Helper class for the overflow property
 .o-hidden {
   overflow: hidden !important;

@@ -12,7 +12,7 @@
     		<span class="title">Smart Admin</span>
 		</div>
     	<div class="card-body">
-			<form role="form" method="POST" th:action="@{/login}" class="form-login">
+			<form role="form" method="POST" th:action="@{/signin}" class="form-login">
 				<fieldset>
 	                <span th:text="${message}"></span>
 	                <div th:class="|form-group ${error != null ? 'has-error' : ''}|">
@@ -31,6 +31,12 @@
 		              <button class="btn btn-primary btn-block" type="submit" th:text="#{common.login}"></button>
 	             </fieldset>
 	        </form>
+	        <hr>
+			<div class="text-center center-block">
+                <a th:href="@{/auth/facebook}"><i class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a th:href="@{/auth/twitter}"><i class="fa fa-twitter-square fa-3x social"></i></a>
+	            <a th:href="@{/auth/google}"><i class="fa fa-google-plus-square fa-3x social"></i></a>
+			</div>
 			<div class="text-center">
 			  <a class="d-block small mt-3" th:href="@{/signup}">Register an Account</a>
 			  <a class="d-block small" href="forgot-password.html">Forgot Password?</a>

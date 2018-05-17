@@ -16,16 +16,25 @@
 	           <i class="fa fa-newspaper-o"></i> Mon Dossier
 	        </li>
 	    </ol>
-	    <hr class="mt-2">
-		<div class="col-lg-8">
-			<th:block th:each="document : ${documents}">
-				<th:block th:include="~{widget/documentWidget::content (${document})}"></th:block>
-			</th:block>
+	    <div class="row"> 
+			<div class="col-lg-8">
+				<div class="card mb-3">
+					<div class="card-header">
+						Mes Documents &nbsp; 
+						<a id="newDocument" href="#"><i class="fa fa-plus-circle"></i></a>
+					</div>
+					<div class="card-body">
+						<th:block th:each="document : ${documents}">
+							<th:block th:include="~{widget/documentWidget::content (${document})}"></th:block>
+						</th:block>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<th:block layout:fragment="modals"> 	
-		<th:block th:include="~{modules/widget/newDocumentModal::content}">
+		<th:block th:include="~{widget/newDocumentModal::content}">
 		</th:block>
 	</th:block>
 
