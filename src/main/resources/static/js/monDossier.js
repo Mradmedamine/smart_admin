@@ -34,17 +34,17 @@ $(function() {
 		var fileName = $(fileInput).attr('data-placeholder');
 
 		$(newBtn).on('click', function() {
-		    $(modal).show();
+		    $(modal).jshow();
 		});
 	
 		$(closeBtn).on('click', function() {
 		    $(actionForm).reset();
-		    $(modal).hide();
+		    $(modal).jhide();
 		});
 	
 		$(backBtn).on('click', function() {
 		    $(actionForm).reset();
-		    $(modal).hide();
+		    $(modal).jhide();
 		});
 	
 		$(saveBtn).on('click', function() {
