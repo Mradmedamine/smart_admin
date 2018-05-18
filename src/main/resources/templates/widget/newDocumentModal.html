@@ -21,7 +21,7 @@
 		                        	<i class="fa fa-folder-open fa-fw"></i>
 		                        	Nouveau document
 			                    </span>
-					    <span class="close pull-right">×</span>
+					    		<span class="close pull-right">×</span>
 			                 </div>
 			       		</div>
 					</div>				
@@ -29,7 +29,7 @@
 					    <form id="action-form" name="fileAction" action="#" method="POST" class="col-md-10 offset-md-1" enctype="multipart/form-data">
 					    	<div class="form-group mt-3">
 					    		<label class="custom-file">
-									<input id="physicalFile" type="file" name="physicalFile" th:attr="data-buttonText=#{common.chooseFile}" accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.pdf,.txt">
+									<input id="physicalFile" type="file" name="physicalFile" th:attr="data-buttonText=#{common.chooseFile}" required accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.pdf,.txt">
 									<span class="custom-file-control"></span>
 								</label>
 					    	</div>

@@ -17,16 +17,18 @@
 	        </li>
 	    </ol>
 	    <div class="row"> 
-			<div class="col-lg-8">
+			<div class="col-lg-12">
 				<div class="card mb-3">
 					<div class="card-header">
 						Mes Documents &nbsp; 
 						<a id="newDocument" href="#"><i class="fa fa-plus-circle"></i></a>
 					</div>
 					<div class="card-body">
-						<th:block th:each="document : ${documents}">
-							<th:block th:include="~{widget/documentWidget::content (${document})}"></th:block>
-						</th:block>
+						<div class="row">
+							<th:block th:each="document : ${documents}">
+								<th:block th:include="~{widget/documentWidget::content (${document})}"></th:block>
+							</th:block>
+						</div>
 					</div>
 				</div>
 			</div>

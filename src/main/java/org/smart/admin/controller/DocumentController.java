@@ -3,7 +3,6 @@ package org.smart.admin.controller;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Collections;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,10 +20,11 @@ import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -44,18 +44,12 @@ public class DocumentController {
 
 	@GetMapping
 	public String documentsList(Model model) {
-		// model.addAttribute("documents",
-		// documentRepository.findByUser_Username(SecurityUtils.findLoggedInUsername()));
-		Document document = new Document();
-		PhysicalFile file = new PhysicalFile();
-		file.setFileName("Titre de Séjour");
-		document.setPhysicalFile(file);
-		model.addAttribute("documents", Collections.singleton(document));
+		model.addAttribute("documents", documentRepository.findByUser_Username(SecurityUtils.findLoggedInUsername()));
 		return "monDossier";
 	}
 
 	@ResponseBody
-	@RequestMapping(method = RequestMethod.POST, consumes = { "multipart/mixed", MediaType.MULTIPART_FORM_DATA_VALUE })
+	@PostMapping(consumes = { "multipart/mixed", MediaType.MULTIPART_FORM_DATA_VALUE })
 	public String saveTemplateDocument(@RequestParam("physicalFile") MultipartFile file, Model model) {
 		Document document = new Document();
 		document.setPhysicalFile(createPhysicalFile(file));
@@ -65,13 +59,13 @@ public class DocumentController {
 	}
 
 	@ResponseBody
-	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+	@DeleteMapping("/{id}")
 	public String deleteTemplateDocument(@PathVariable Long id, Model model) {
 		documentRepository.delete(id);
 		return StringUtils.EMPTY;
 	}
 
-	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
+	@GetMapping("/{id}")
 	public void downloadTemplateDocument(@PathVariable Long id, HttpServletResponse response) {
 		Document document = documentRepository.findOne(id);
 		PhysicalFile physicalFile = document.getPhysicalFile();
