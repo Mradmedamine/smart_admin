@@ -38,12 +38,12 @@ $(function() {
 		});
 	
 		$(closeBtn).on('click', function() {
-		    $(actionForm).reset();
+		    $(actionForm).jreset();
 		    $(modal).jhide();
 		});
 	
 		$(backBtn).on('click', function() {
-		    $(actionForm).reset();
+		    $(actionForm).jreset();
 		    $(modal).jhide();
 		});
 	
