@@ -1,12 +1,12 @@
 $.fn.extend({
 
-    hide : function() {
+    jhide : function() {
 	return this.addClass('hidden');
     },
-    show : function() {
+    jshow : function() {
 	return this.removeClass('hidden');
     },
-    reset : function() {
+    jreset : function() {
 	this.find('input').val('');
     },
     serializeObject : function() {
