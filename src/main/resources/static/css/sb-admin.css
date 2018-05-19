@@ -44,6 +44,18 @@ body.fixed-nav {
   font-weight: 600 !important;
   width: 80px; }
 
+.fa-twitter-square {
+  color: #1DA1F3; }
+
+.fa-twitter-square:hover, .fa-twitter-square:focus {
+  opacity: 0.9; }
+
+.fa-google-plus-square {
+  color: #E14A39; }
+
+.fa-google-plus-square:hover, .fa-google-plus-square:focus {
+  opacity: 0.9; }
+
 .modal-uca {
   position: fixed;
   z-index: 99999;
@@ -417,23 +429,26 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
         display: inline-block;
         text-align: left; }
 
-#document-container .card {
-  border: 0px;
-  cursor: pointer;
-  color: #777;
-  background-color: rgba(0, 0, 0, 0.02); }
-  #document-container .card .card-body {
-    padding: 0.5rem 1rem 1.1rem 1rem; }
-  #document-container .card .btn {
-    background-color: rgba(0, 0, 0, 0.03);
+#document-container {
+  width: 190px;
+  padding: 15px; }
+  #document-container .card {
+    border: 0px;
+    cursor: pointer;
     color: #777;
-    border-top-left-radius: 0rem;
-    border-bottom-right-radius: 0rem;
-    border-bottom-left-radius: 0.5rem; }
-  #document-container .card .btn:hover {
-    background-color: rgba(0, 0, 0, 0.08); }
-#document-container .card:hover {
-  background-color: rgba(0, 0, 0, 0.04); }
+    background-color: rgba(0, 0, 0, 0.02); }
+    #document-container .card .card-body {
+      padding: 0.5rem 1rem 1.1rem 1rem; }
+    #document-container .card .btn {
+      background-color: rgba(0, 0, 0, 0.03);
+      color: #777;
+      border-top-left-radius: 0rem;
+      border-bottom-right-radius: 0rem;
+      border-bottom-left-radius: 0.5rem; }
+    #document-container .card .btn:hover {
+      background-color: rgba(0, 0, 0, 0.08); }
+  #document-container .card:hover {
+    background-color: rgba(0, 0, 0, 0.04); }
 
 footer.sticky-footer {
   position: absolute;

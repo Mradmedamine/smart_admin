@@ -10,8 +10,8 @@
  <body>
  
  <th:block th:fragment="content (document)">
-		<div id="document-container" class="col-lg-3" th:attr="data-document-id=${document.id}">
-	    	<div class="card mb-4">
+		<div id="document-container" th:attr="data-document-id=${document.id}">
+	    	<div class="card">
 	    		<div>
 					<a class="btn btn-default btn-delete fa fa-trash-o pull-right"></a>
 				</div>

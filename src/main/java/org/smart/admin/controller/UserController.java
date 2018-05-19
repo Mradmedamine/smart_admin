@@ -11,9 +11,9 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
@@ -30,13 +30,13 @@ public class UserController {
 	@Autowired
 	private MessageSource messageSource;
 
-	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	@GetMapping("/signup")
 	public String signup(Model model) {
 		model.addAttribute("userForm", new User());
 		return "signup";
 	}
 
-	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	@PostMapping("/signup")
 	public String signup(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
 		userValidator.validate(userForm, bindingResult);
 		if (bindingResult.hasErrors()) {
@@ -47,7 +47,7 @@ public class UserController {
 		return "redirect:/";
 	}
 
-	@RequestMapping(value = "/signin", method = RequestMethod.GET)
+	@GetMapping("/signin")
 	public String login(Model model, String error, String logout, Locale locale) {
 		Object[] args = new Object[] {};
 		if (error != null) {
@@ -61,6 +61,11 @@ public class UserController {
 			model.addAttribute("message", logoutSuccessMessage);
 		}
 		return "signin";
+	}
+
+	@GetMapping("/forgot-password")
+	public String forgotPassword(Model model) {
+		return "forgot-password";
 	}
 
 }
