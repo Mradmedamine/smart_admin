@@ -19,9 +19,9 @@
 		    </div>
 		</li>
 	</th:block>
-	<div class="smaller">
+	<div id="suggestions">
 		<th:block th:each="suggestion : ${suggestions}">
-			<button type="button" class="btn btn-sm btn-outline-primary suggestion mb-1" th:text="${suggestion}"></button>
+			<button type="button" class="btn btn-sm btn-outline-primary suggestion smaller mb-1" th:text="${suggestion}"></button>
 		</th:block>
 	</div>
 </th:block>
