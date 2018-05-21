@@ -5,22 +5,23 @@
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <th:block th:fragment="content">
-	<div class="chat-container">
+	<div id="chat-container">
 	    <div class="row">
 	        <div class="col-sm-12">
 	            <div class="card small">
-	                <div class="card-header">
-	                    <i class="fa fa-comments"></i> Chat
+	                <div class="card-header clickable">
+	                    <i class="fa fa-comments"></i> Chat 
+	                    <i class="fa fa-caret-down fa-1x mt-1 pull-right"></i>
 	                </div>
 	                <div class="card-body">
 			            <form id="usernameForm">
 			            	<div class="form-group">
-							    <label for="name">Enter your username</label>
-							    <input type="text" class="form-control btn-sm name" id="name" placeholder="Username">
-							    <small id="chat help" class="form-text text-muted">Need any help ? start chatting.</small>
+							    <label for="name">Tapez votre Prénom </label>
+							    <input type="text" class="form-control btn-sm name" id="name" placeholder="Prénom">
+							    <small id="chat help" class="form-text text-muted">Besoin d'aide ? demander vos questions</small>
 							</div>
 			                <div class="form-group">
-			                    <button type="submit" class="btn btn-primary btn-sm username-submit">Start Chatting</button>
+			                    <button type="submit" class="btn btn-primary btn-sm username-submit">Commencer le chat</button>
 			                </div>
 			            </form>
 				        <div id="chat">
@@ -31,8 +32,8 @@
 	                </div>
 	                <div class="card-footer">
 	                    <form id="messageForm" class="row hidden">
-						    <input type="text" class="form-control btn-sm col-sm-9" id="message" placeholder="Type your message here ..">&nbsp;
-						    <button type="submit" class="btn btn-primary btn-sm col-sm-2" id="btn-chat">Send</button>
+						    <input type="text" class="form-control btn-sm col-sm-9 mr-2" id="message" placeholder="Type your message here ..">
+						    <button type="submit" class="btn btn-primary btn-sm col-sm-2" id="btn-chat">Envoyer</button>
 						</form>
 	                </div>
 	            </div>

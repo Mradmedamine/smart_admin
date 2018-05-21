@@ -96,6 +96,9 @@ body.fixed-nav {
 .z-1 {
   z-index: 1; }
 
+.clickable {
+  cursor: pointer; }
+
 .centered-text {
   text-align: center; }
 
@@ -370,39 +373,43 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   .card-columns {
     column-count: 2; } }
 
-.chat-container {
+#chat-container {
   display: inline;
   position: fixed;
   right: 75px;
   bottom: 3px; }
-  .chat-container .card .card-header {
-    padding: 8px 0px 8px 10px; }
-  .chat-container .card .card-body {
+  #chat-container .card .card-header {
+    min-width: 220px;
+    padding: 5px 11px 5px 11px;
+    background-color: #007bff !important;
+    color: white; }
+  #chat-container .card .card-body {
     min-width: 290px; }
-    .chat-container .card .card-body .chat {
+    #chat-container .card .card-body .chat {
       list-style: none;
       margin: 0;
-      padding: 0; }
-    .chat-container .card .card-body .chat li {
+      padding: 0;
+      max-width: 380px; }
+    #chat-container .card .card-body .chat li {
       margin-bottom: 10px;
       padding-bottom: 5px;
       border-bottom: 1px dotted #B3A9A9; }
-    .chat-container .card .card-body .chat li.left .chat-body {
+    #chat-container .card .card-body .chat li.left .chat-body {
       margin-left: 60px; }
-    .chat-container .card .card-body .chat li.right .chat-body {
+    #chat-container .card .card-body .chat li.right .chat-body {
       margin-right: 60px; }
-    .chat-container .card .card-body .chat li .chat-body p {
+    #chat-container .card .card-body .chat li .chat-body p {
       margin: 0;
       color: #777777; }
-    .chat-container .card .card-body .slidedown .glyphicon, .chat-container .card .card-body .chat .glyphicon {
+    #chat-container .card .card-body .slidedown .glyphicon, #chat-container .card .card-body .chat .glyphicon {
       margin-right: 5px; }
-  .chat-container ::-webkit-scrollbar-track {
+  #chat-container ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #F5F5F5; }
-  .chat-container ::-webkit-scrollbar {
+  #chat-container ::-webkit-scrollbar {
     width: 12px;
     background-color: #F5F5F5; }
-  .chat-container ::-webkit-scrollbar-thumb {
+  #chat-container ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #555; }
 
@@ -417,36 +424,41 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   font-size: 1.25rem;
   vertical-align: sub; }
 
-#communesWidget #searchInput {
-  background-image: url("/images/searchicon.png");
-  /* Add a search icon to input */
-  background-position: 10px 12px;
-  /* Position the search icon */
-  background-repeat: no-repeat;
-  /* Do not repeat the icon image */
-  width: 100%;
-  /* Full-width */
-  padding: 12px 20px 12px 40px;
-  /* Add some padding */
-  border: 1px solid #ddd;
-  /* Add a grey border */ }
-#communesWidget .communeItem {
-  display: none; }
-#communesWidget a, #communesWidget a:visited {
-  color: #6c757d;
-  text-decoration: none;
-  display: block; }
-#communesWidget a:hover {
-  text-decoration: none; }
-#communesWidget #loadMore {
-  box-shadow: 0 1px 1px #ccc;
-  transition: all 600ms ease-in-out;
-  -webkit-transition: all 600ms ease-in-out;
-  -moz-transition: all 600ms ease-in-out;
-  -o-transition: all 600ms ease-in-out; }
-#communesWidget #loadMore:hover {
-  background-color: #fff;
-  color: #33739E; }
+#departmentInfoWidget {
+  z-index: 0; }
+
+#communesWidget {
+  z-index: 0; }
+  #communesWidget #searchInput {
+    background-image: url("/images/searchicon.png");
+    /* Add a search icon to input */
+    background-position: 10px 12px;
+    /* Position the search icon */
+    background-repeat: no-repeat;
+    /* Do not repeat the icon image */
+    width: 100%;
+    /* Full-width */
+    padding: 12px 20px 12px 40px;
+    /* Add some padding */
+    border: 1px solid #ddd;
+    /* Add a grey border */ }
+  #communesWidget .communeItem {
+    display: none; }
+  #communesWidget a, #communesWidget a:visited {
+    color: #6c757d;
+    text-decoration: none;
+    display: block; }
+  #communesWidget a:hover {
+    text-decoration: none; }
+  #communesWidget #loadMore {
+    box-shadow: 0 1px 1px #ccc;
+    transition: all 600ms ease-in-out;
+    -webkit-transition: all 600ms ease-in-out;
+    -moz-transition: all 600ms ease-in-out;
+    -o-transition: all 600ms ease-in-out; }
+  #communesWidget #loadMore:hover {
+    background-color: #fff;
+    color: #33739E; }
 
 .selection-btn {
   float: left; }

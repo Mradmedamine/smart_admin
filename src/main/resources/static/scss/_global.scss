@@ -34,14 +34,10 @@ body.fixed-nav {
   position: fixed;
   right: 15px;
   bottom: 3px;
-
   display: none;
-
   width: 50px;
   height: 50px;
-
   text-align: center;
-
   color: white;
   background: fade-out($gray-800, .5);
 

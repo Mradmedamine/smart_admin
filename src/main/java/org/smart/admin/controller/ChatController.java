@@ -17,6 +17,7 @@ public class ChatController {
 	@PostMapping("/chat/sendMessage")
 	public String sendMessage(ChatMessage chatMessage, Model model) {
 		model.addAttribute("messages", Arrays.asList(chatMessage, ChatBot.answer(chatMessage)));
+		model.addAttribute("suggestions", ChatBot.getSuggestions(chatMessage));
 		return "widget/chatMessageWidget::content";
 	}
 
@@ -24,6 +25,7 @@ public class ChatController {
 	public String addUser(ChatMessage chatMessage, HttpServletRequest request, Model model) {
 		request.getSession().setAttribute("username", chatMessage.getSender());
 		model.addAttribute("messages", Collections.singletonList(ChatBot.answer(chatMessage)));
+		model.addAttribute("suggestions", ChatBot.getSuggestions(chatMessage));
 		return "widget/chatMessageWidget::content";
 	}
 

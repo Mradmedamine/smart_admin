@@ -1,11 +1,14 @@
-.chat-container {
+#chat-container {
      display: inline;
      position: fixed;
      right: 75px;
      bottom: 3px;
      .card {
 	     .card-header {
-	    	padding: 8px 0px 8px 10px; 
+	     	min-width: 220px;
+	    	padding: 5px 11px 5px 11px; 
+	    	background-color: #007bff !important;
+	    	color: white;
 	    }
 	     .card-body {
 	         min-width: 290px;
@@ -14,6 +17,7 @@
 		         list-style: none;
 		         margin: 0;
 		         padding: 0;
+		         max-width: 380px;
 		    }
 		     .chat li {
 		         margin-bottom: 10px;
