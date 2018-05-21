@@ -1,15 +1,15 @@
-package org.smart.admin.model.json;
+package org.smart.admin.model;
 
 import java.util.List;
 
-public class JsonDepartment {
+public class Department {
 
 	private String code;
 	private String department;
 	private String superficie;
 	private String population;
 	private String densite;
-	private List<JsonCommune> communes;
+	private List<Commune> communes;
 
 	public String getCode() {
 		return code;
@@ -19,11 +19,11 @@ public class JsonDepartment {
 		this.code = code;
 	}
 
-	public List<JsonCommune> getCommunes() {
+	public List<Commune> getCommunes() {
 		return communes;
 	}
 
-	public void setCommunes(List<JsonCommune> communes) {
+	public void setCommunes(List<Commune> communes) {
 		this.communes = communes;
 	}
 

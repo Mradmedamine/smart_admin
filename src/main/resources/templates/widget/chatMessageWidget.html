@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<th:block th:fragment="content">
+	<th:block th:each="message : ${messages}" th:with="isBot=${message.sender == 'Bot'}">
+		<li th:class="|${ isBot ? 'left' : 'right' } clearfix|">
+		    <span th:class="|chat-img pull-${ isBot ? 'left' : 'right' }|">
+		        <img th:class="|d-flex rounded-circle ${ isBot ? 'mr-3' : '' }|" src="http://placehold.it/45x45" alt="">
+		    </span>
+		    <div class="chat-body clearfix">
+		        <div class="header">
+		            <strong th:class="|${ isBot ? '' : 'pull-right' } primary-font|" th:text="${message.sender}"></strong> 
+		            <span th:class="|${ isBot ? 'pull-right' : '' } text-muted smaller|"><i class="fa fa-clock-o"></i> 12 mins ago</span>
+		        </div>
+		        <p  th:text="${message.content}"></p>
+		    </div>
+		</li>
+	</th:block>
+</th:block>
+</html>

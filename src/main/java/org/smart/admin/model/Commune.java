@@ -1,10 +1,10 @@
-package org.smart.admin.model.json;
+package org.smart.admin.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class JsonCommune {
+public class Commune {
 
 	@JsonProperty("CODE_DEPT")
 	private String codeDept;

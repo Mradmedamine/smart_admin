@@ -63,12 +63,15 @@
     <!-- Page level plugin JavaScript-->
     <script src="/vendor/datatables/jquery.dataTables.js"></script>
     <script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="/vendor/sockjs.min.js"></script>
+    <script src="/vendor/stomp.min.js"></script>
     
-    <!-- Custom scripts for all pages-->
-    <script src="/js/sb-admin.js"></script>
     <script src="/js/jquery.extend.js"></script>
     
-    <!---- UCA ---->
+    <!-- Application script -->
+    <script src="/js/sb-admin.js"></script>
+    <script src="/js/chat.js"></script>
+    
     <th:block th:include="~{i18n::content}"></th:block>
 		
 	<th:block layout:fragment="js-import"></th:block>

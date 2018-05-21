@@ -7,8 +7,8 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.smart.admin.model.json.JsonCommune;
-import org.smart.admin.model.json.JsonDepartment;
+import org.smart.admin.model.Commune;
+import org.smart.admin.model.Department;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
@@ -17,30 +17,30 @@ public class DepartmentRepository {
 
 	private static Logger logger = LoggerFactory.getLogger(DepartmentRepository.class);
 
-	private static Map<String, JsonDepartment> departments = new HashMap<>();
+	private static Map<String, Department> departments = new HashMap<>();
 	private static ObjectMapper mapper = new ObjectMapper();
 	static {
 		initDepartments();
 	}
 
-	public static JsonDepartment getDepartment(String key) {
+	public static Department getDepartment(String key) {
 		logger.debug("getting department with code {}", key);
 		return departments.get(key);
 	}
 
-	public static JsonCommune getCommune(String dep, String insee) {
-		JsonDepartment department = getDepartment(dep);
-		List<JsonCommune> communes = department.getCommunes();
+	public static Commune getCommune(String dep, String insee) {
+		Department department = getDepartment(dep);
+		List<Commune> communes = department.getCommunes();
 		return communes.stream().filter(e -> e.getInseeCommune().equals(insee)).findFirst()
 				.orElseThrow(IllegalArgumentException::new);
 	}
 
 	private static void initDepartments() {
 		InputStream is = DepartmentRepository.class.getResourceAsStream("/static/data/departments.json");
-		List<JsonDepartment> departmentsList = null;
+		List<Department> departmentsList = null;
 		try {
 			CollectionType ParamType = mapper.getTypeFactory().constructCollectionType(List.class,
-					JsonDepartment.class);
+					Department.class);
 			departmentsList = mapper.readValue(is, ParamType);
 			departmentsList.forEach((dep) -> {
 				String code = extractCode(dep.getDepartment());
