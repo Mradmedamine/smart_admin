@@ -384,23 +384,26 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
     background-color: #007bff !important;
     color: white; }
   #chat-container .card .card-body {
-    min-width: 325px; }
+    min-width: 320px;
+    overflow: auto;
+    overflow-y: scroll;
+    max-height: 300px; }
     #chat-container .card .card-body .chat {
       list-style: none;
       margin: 0;
       padding: 0;
       max-width: 380px; }
-    #chat-container .card .card-body .chat li {
-      margin-bottom: 10px;
-      padding-bottom: 5px;
-      border-bottom: 1px dotted #B3A9A9; }
-    #chat-container .card .card-body .chat li.left .chat-body {
-      margin-left: 60px; }
-    #chat-container .card .card-body .chat li.right .chat-body {
-      margin-right: 60px; }
-    #chat-container .card .card-body .chat li .chat-body p {
-      margin: 0;
-      color: #777777; }
+      #chat-container .card .card-body .chat li {
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted #B3A9A9; }
+        #chat-container .card .card-body .chat li .chat-body p {
+          margin: 0;
+          color: #777777; }
+      #chat-container .card .card-body .chat li.left .chat-body {
+        margin-left: 60px; }
+      #chat-container .card .card-body .chat li.right .chat-body {
+        margin-right: 60px; }
     #chat-container .card .card-body .slidedown .glyphicon, #chat-container .card .card-body .chat .glyphicon {
       margin-right: 5px; }
   #chat-container ::-webkit-scrollbar-track {

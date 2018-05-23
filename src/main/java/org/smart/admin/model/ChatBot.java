@@ -25,31 +25,28 @@ public final class ChatBot {
 
 	public static List<String> getSuggestions(ChatMessage message) {
 		if (message.getType() == MessageType.JOIN) {
-			return Arrays.asList(
-					Constants.BotMessages.QUESTION_REGISTER, Constants.BotMessages.QUESTION_CREATE_DOSSIER,
+			return Arrays.asList(Constants.BotMessages.QUESTION_REGISTER, Constants.BotMessages.QUESTION_CREATE_DOSSIER,
 					Constants.BotMessages.QUESTION_DEPARTMENT, Constants.BotMessages.QUESTION_COMMUNE);
 		}
 		return Collections.emptyList();
 	}
-	
+
 	private static String lookupAnswer(ChatMessage message) {
 		if (message.getType() == MessageType.JOIN) {
 			return String.format(Constants.BotMessages.WELCOME_MESSAGE, message.getSender());
 		} else {
 			switch (message.getContent()) {
 			case Constants.BotMessages.QUESTION_REGISTER:
-				return "";
+				return Constants.BotMessages.ANSWER_REGISTER;
 			case Constants.BotMessages.QUESTION_CREATE_DOSSIER:
-				return "";
+				return Constants.BotMessages.ANSWER_CREATE_DOSSIER;
 			case Constants.BotMessages.QUESTION_DEPARTMENT:
-				return "";
+				return Constants.BotMessages.ANSWER_DEPARTMENT;
 			case Constants.BotMessages.QUESTION_COMMUNE:
-				return "";
+				return Constants.BotMessages.ANSWER_COMMUNE;
 			}
-			return "Sounds goods, check here ";
+			return "Quoi ?! ";
 		}
 	}
 
-
-	
 }
