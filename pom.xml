@@ -70,7 +70,6 @@
 		</dependency>
 
 		<!-- Spring Social login -->
-
 		<dependency>
 			<groupId>org.springframework.security.oauth</groupId>
 			<artifactId>spring-security-oauth2</artifactId>
@@ -120,7 +119,6 @@
 			<artifactId>thymeleaf-extras-java8time</artifactId>
 			<version>${thymeleaf.extras.version}</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
-
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>

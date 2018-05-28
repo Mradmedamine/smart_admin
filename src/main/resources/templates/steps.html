@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{desktop-layout}">
+
+<th:block layout:fragment="desktop-page-content">
+
+	<!-- Breadcrumbs-->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+		<li class="breadcrumb-item">Carte</li>
+		<li class="breadcrumb-item active">Etapes</li>
+	</ol>
+	<div class="row">
+		<div class="col-lg-8">
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-newspaper-o"></i>&nbsp;
+					Etapes
+				</div>
+				<div class="card-body">
+					<div>
+						<b>Étape 1 - La constitution de votre dossier de demande </b> <br>
+						Assurez-vous d'avoir toutes les pièces exigées. La liste des documents à fournir le jour du rendez-vous est consultable  		
+					</div>
+					<div>
+						<b>Étape 2 - La prise de rendez-vous </b> <br>
+						Pour prendre rendez-vous
+					</div>
+					<div>
+						<b>Étape 3 - L'envoi d'une convocation à votre attention par courriel par le bureau de l'admission au séjour de la sous-préfecture du Raincy</b> <br>
+						Vous devrez vous présenter au rendez-vous fixé et fournir les documents exigés (listés à l'étape 1). Votre dossier devra être complet, sinon il sera refusé. “
+									  "Demande_Nouveau_titreSejour":
+						“Vous devez vous présenter à la sous-préfecture du Raincy - Bureau des étrangers - 57, avenue Thiers - 93344 LE RAINCY CEDEX, les lundi, mardi, jeudi et vendredi entre 13h00 et 16h00.
+					</div>
+				</div>
+				<div class="card-footer small text-muted">
+					<th:block th:text="${commune.nomCommune}"/> 
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4">
+	        <div class="card mb-3">
+				<div class="card-body">
+				  <h6 class="card-title mb-1"><a href="#">David Miller</a></h6>
+				  <p class="card-text small">It's hot, and I might be lost...
+				    <a href="#">#desert</a>
+				    <a href="#">#water</a>
+				    <a href="#">#anyonehavesomewater</a>
+				  </p>
+				</div>
+	            <hr class="my-0">
+	            <div class="card-body py-2 small">
+					<a class="mr-3 d-inline-block" href="#">
+						<i class="fa fa-fw fa-thumbs-up"></i>Like
+					</a>
+				    <a class="mr-3 d-inline-block" href="#">
+				  		<i class="fa fa-fw fa-comment"></i>Comment
+				    </a>
+					<a class="d-inline-block" href="#">
+				  		<i class="fa fa-fw fa-share"></i>Share
+				  	</a>
+	            </div>
+	            <hr class="my-0">
+	            <div class="card-footer small text-muted">Posted yesterday</div>
+	    	</div>
+	    </div>
+	</div>
+</th:block>
+
+<th:block layout:fragment="js-import">
+	<script src="/js/selection.js" type="text/javascript"></script>
+</th:block>
+
+</html>

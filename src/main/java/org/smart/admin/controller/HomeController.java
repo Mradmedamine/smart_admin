@@ -32,4 +32,11 @@ public class HomeController {
 		model.addAttribute("commune", DepartmentRepository.getCommune(departmentCode, inseeCommune));
 		return "selection";
 	}
+	
+	@GetMapping("/steps/{departmentCode}/{inseeCommune}")
+	public String etapes(@PathVariable String departmentCode, @PathVariable String inseeCommune, Model model) {
+		model.addAttribute("commune", DepartmentRepository.getCommune(departmentCode, inseeCommune));
+		return "steps";
+	}
+	
 }
