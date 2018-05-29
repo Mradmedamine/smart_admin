@@ -59,6 +59,5 @@ public class UserServiceImpl implements UserService {
 			this.save(user);
 		}
 		return user;
-
 	}
 }

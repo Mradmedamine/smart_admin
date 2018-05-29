@@ -8,23 +8,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
  </head>
  <body>
- 
  <th:block th:fragment="content (document)">
-		<div id="document-container" th:attr="data-document-id=${document.id}">
-	    	<div class="card">
-	    		<div>
-					<a class="btn btn-default btn-delete fa fa-trash-o pull-right"></a>
+	<div id="document-container" th:attr="data-document-id=${document.id}">
+    	<div class="card">
+    		<div>
+				<a class="btn btn-default btn-delete fa fa-trash-o pull-right"></a>
+			</div>
+            <div class="card-body">
+                <div class="centered-text">
+			  		<img src="/images/logo.png" width="48" alt="Smart admin">
+			    </div>
+				<div class="centered-text">
+					<small th:text="${document.physicalFile.fileName}"></small>
 				</div>
-	            <div class="card-body">
-	                <div class="centered-text">
-				  		<img src="/images/logo.png" width="48" alt="Smart admin">
-				    </div>
-					<div class="centered-text">
-						<small th:text="${document.physicalFile.fileName}"></small>
-					</div>
-		        </div>
-	        </div> 
-		</div>
-	</th:block>    
+	        </div>
+        </div> 
+	</div>
+</th:block>    
 </body>
 </html>
