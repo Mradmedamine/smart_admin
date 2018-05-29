@@ -10,8 +10,7 @@
 *.exe
 *.o
 *.so
-/src/main/resources/static/css/sb-admin.css.map
-/src/main/resources/static/css/sb-admin.css
+/src/main/resources/static/css/
 
 # Packages #
 ############
