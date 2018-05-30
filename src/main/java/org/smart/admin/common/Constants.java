@@ -9,7 +9,7 @@ public interface Constants {
 		String QUESTION_CREATE_DOSSIER = "Je veux constituer mon dossier";
 		String QUESTION_COMMUNE = "Quelle est ma prefecture";
 		String QUESTION_REGISTER = "Je veux m'inscrire";
-		String QUESTION_DEPARTMENT = "Quel est mon département";
+		String QUESTION_DEPARTMENT = "Quel est mon departement";
 		
 		String ANSWER_REGISTER = "Cliquer sur le petit icone a  droite en haut de cette page : \n"
 				+ "Vous pouvez s'inscrire en remplissant les champs avec vos informations en mettant "

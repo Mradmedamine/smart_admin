@@ -52,38 +52,36 @@ $(function() {
 		});
 
 		$(actionForm).submit(function() {
-//			if ($(actionForm).validate()) {
-				var file = $(actionForm).find('#physicalFile').prop('files')[0];
-				if (file && file.size > 2048576) {
-					toastr["error"](message.common.fileSizeError);
-					$('#toast-container .toast-error').show();
-					return false;
-				}
-				if (!file) {
-					file = new File([ "" ], "");
-				}
-				var formObject = $(this).serializeObject();
-				var formData = new FormData();
-				formData.append("physicalFile", file);
+			var file = $(actionForm).find('#physicalFile').prop('files')[0];
+			if (file && file.size > 2048576) {
+				toastr["error"](message.common.fileSizeError);
+				$('#toast-container .toast-error').show();
+				return false;
+			}
+			if (!file) {
+				file = new File([ "" ], "");
+			}
+			var formObject = $(this).serializeObject();
+			var formData = new FormData();
+			formData.append("physicalFile", file);
 
-				$.ajax({
-					type : 'POST',
-					url : "/monDossier",
-					data : formData,
-					async : false,
-					cache : false,
-					contentType : false,
-					processData : false,
-					success : function(result) {
-						$(modal).hide();
-						toastr['success'](message.common.savingSuccessMessage);
-						$('#toast-container .toast-success').show();
-						timer = setTimeout(function() {
-							location.reload();
-						}, 1000);
-					}
-				});
-//			}
+			$.ajax({
+				type : 'POST',
+				url : "/monDossier",
+				data : formData,
+				async : false,
+				cache : false,
+				contentType : false,
+				processData : false,
+				success : function(result) {
+					$(modal).hide();
+					toastr['success'](message.common.savingSuccessMessage);
+					$('#toast-container .toast-success').show();
+					timer = setTimeout(function() {
+						location.reload();
+					}, 1000);
+				}
+			});
 			return false;
 		});
 

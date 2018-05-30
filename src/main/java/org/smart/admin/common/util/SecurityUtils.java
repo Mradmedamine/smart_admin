@@ -13,7 +13,7 @@ public class SecurityUtils {
 	}
 
 	public static Optional<UserDetails> findLoggedInUser() {
-		Object userDetails = SecurityUtils.getAuthentication().getDetails();
+		Object userDetails = SecurityUtils.getAuthentication().getPrincipal();
 		if (userDetails instanceof UserDetails) {
 			return Optional.of((UserDetails) userDetails);
 		}

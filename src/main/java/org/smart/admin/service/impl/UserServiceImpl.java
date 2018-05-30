@@ -14,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.UserProfile;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -50,7 +51,7 @@ public class UserServiceImpl implements UserService {
 		if (user == null) {
 			user = new User();
 			user.setFullname(userProfile.getFirstName() + " " + userProfile.getLastName());
-			user.setUsername(userProfile.getEmail());
+			user.setUsername(getEmailUsername(userProfile.getEmail()));
 			user.setEmail(userProfile.getEmail());
 			String randomPassword = UUID.randomUUID().toString().substring(0, 5);
 			user.setPassword(randomPassword);
@@ -60,4 +61,11 @@ public class UserServiceImpl implements UserService {
 		}
 		return user;
 	}
+
+	private String getEmailUsername(String email) {
+		if (StringUtils.hasText(email))
+			return email.substring(0, email.indexOf('@'));
+		return null;
+	}
+	
 }

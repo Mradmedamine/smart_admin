@@ -43,21 +43,23 @@
 		</div>
 		<div id="comments-container" class="col-lg-4">
 	        <div class="card mb-3">
-				<div class="card-body">
+				<div th:each="comment : ${comments}" class="card-body">
 				  <div class="card-title mb-1">
-				  	 <strong>David Miller</strong>
+				  	 <strong th:text="${comment.user?.fullname}"></strong>
 				  	 <span class="text-muted smaller pull-right">
 				  	 	<i class="fa fa-clock-o"></i> 12 mins ago
 				  	 </span> 
 				  </div>
-				  <p class="card-text small">It's hot, and I might be lost...
-				    <a href="#">#desert</a>
-				    <a href="#">#water</a>
-				    <a href="#">#anyonehavesomewater</a>
-				  </p>
+				  <p class="card-text small" th:text="${comment.content}"></p>
+				</div>
+				<div th:if="${#lists.isEmpty(comments)}" class="card-body">
+					 <div class="card-title mb-1">
+					 	<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 
+					 	<small>Pas de commentaire pour cette préfecture</small>
+					 </div>
 				</div>
 	            <hr class="my-0">
-	            <div class="card-body py-2 small">
+	            <div sec:authorize="isAuthenticated()" class="card-body py-2 small">
 					<a class="mr-3 d-inline-block" href="#">
 						<i class="fa fa-fw fa-thumbs-up"></i>Like
 					</a>
@@ -65,10 +67,10 @@
 				  		<i class="fa fa-fw fa-comment"></i>Comment
 				    </a>
 	            </div>
-	            <div id="commentBox" class="hidden">
+	            <div id="commentBox" class="hidden" th:attr="data-url=@{/steps/__${commune.inseeCommune}__/comment}">
 		            <hr class="my-0">
 		            <div class="card-body py-2 small">
-						<input  type="text" class="form-control btn-sm" placeholder="Votre commentaire ...">
+						<input type="text" class="form-control btn-sm" placeholder="Votre commentaire ...">
 		            </div>
 		        </div>
 	    	</div>

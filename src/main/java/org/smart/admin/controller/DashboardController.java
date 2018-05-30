@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
-public class HomeController {
+public class DashboardController {
 
 	@GetMapping({ "/", "/home" })
 	public String home(Model model) {
@@ -32,11 +32,5 @@ public class HomeController {
 		model.addAttribute("commune", DepartmentRepository.getCommune(departmentCode, inseeCommune));
 		return "selection";
 	}
-	
-	@GetMapping("/steps/{departmentCode}/{inseeCommune}")
-	public String etapes(@PathVariable String departmentCode, @PathVariable String inseeCommune, Model model) {
-		model.addAttribute("commune", DepartmentRepository.getCommune(departmentCode, inseeCommune));
-		return "steps";
-	}
-	
+		
 }
