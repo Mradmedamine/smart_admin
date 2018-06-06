@@ -1,5 +1,7 @@
 $(function() {
 
+	const FRANCE_COUNTRY_CODE = 'FR';
+
 	var communesWidget;
 
 	initCommunesList();
@@ -19,9 +21,19 @@ $(function() {
 		}
 	});
 
+	$('#currentLocationBtn').click(function(e) {
+		useCurrentLocation();
+	});
+	
+	function useCurrentLocation() {
+		if (confirm('Voulez vous utiliser votre position actuelle ?')) {
+			getGeoLocation();
+		}
+	}
+	
 	function updatePageComponents(code, region) {
-		
-		//update info Widget
+
+		// update info Widget
 		$.ajax({
 			type : 'GET',
 			url : '/department/info/' + code,
@@ -36,8 +48,8 @@ $(function() {
 				$('#toast-container .toast-error').show();
 			}
 		});
-		
-		//update communes widget
+
+		// update communes widget
 		$.ajax({
 			type : 'GET',
 			url : '/department/communes/' + code,
@@ -67,15 +79,16 @@ $(function() {
 				scrollTop : $(this).offset().top
 			}, 1500);
 		});
-		
-		$(communesWidget).find('#searchInput').on('change keyup paste', function(e) {
-			filterCommunes($(this).val().toUpperCase())
-		});
+
+		$(communesWidget).find('#searchInput').on('change keyup paste',
+				function(e) {
+					filterCommunes($(this).val().toUpperCase())
+				});
 	}
-	
+
 	function filterCommunes(filter) {
 		var elements = $(communesWidget).find('.communeItem');
-		if(filter.trim() === '') {
+		if (filter.trim() === '') {
 			$(elements).hide();
 			$(elements).slice(0, 4).show();
 		} else {
@@ -89,5 +102,23 @@ $(function() {
 			}
 		}
 	}
-	
+
+	function getGeoLocation() {
+		
+		var ipAddressAjaxCall = $.getJSON('https://api.ipify.org/?format=json');
+		var geoLocationAjaxCall = ipAddressAjaxCall.then(function(data) {
+			return $.getJSON('https://ipapi.co/' + data.ip + '/json');
+		});
+		
+		geoLocationAjaxCall.done(function(data) {
+			if (data.country === FRANCE_COUNTRY_CODE) {
+				alert('Vous êtes en ' + data.city + ' ' + data.country_name);
+			} else {
+				alert("Vous n'êtes pas en France ");
+			}
+		}).fail(function(e) {
+			alert('error Geolocation');
+		});
+	}
+
 });

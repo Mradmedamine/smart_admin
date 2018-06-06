@@ -29,6 +29,10 @@ body.fixed-nav {
 	color: red
 }
 
+.clickable {
+	pointer: cursor;	
+}
+
 // Scroll to top button
 .scroll-to-top {
   position: fixed;
@@ -59,6 +63,10 @@ body.fixed-nav {
 	line-height: 1.5 !important;
 	font-weight: 600 !important;
 	width: 80px;
+}
+
+.fa-sm {
+	font-size: 1.4em;
 }
 
 .fa-twitter-square {
