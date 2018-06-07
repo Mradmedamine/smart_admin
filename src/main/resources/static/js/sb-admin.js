@@ -70,4 +70,17 @@
 		"showMethod" : "fadeIn",
 		"hideMethod" : "fadeOut"
 	}
+	
+	/* show spinner */
+	$( document ).ajaxStart(function() {
+	    $('#loader').removeClass('hidden');
+	    $('.container-fluid').css('opacity', '0.6');
+	});
+	
+	/* hide spinner */
+	$( document ).ajaxStop(function() {
+	    $('#loader').addClass('hidden');
+	    $('.container-fluid').css('opacity', '1');
+	});
+	
 })(jQuery); // End of use strict

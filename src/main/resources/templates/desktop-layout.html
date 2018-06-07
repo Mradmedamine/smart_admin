@@ -28,6 +28,10 @@
  	<!-- Navigation-->
   <div th:replace="~{navbar::content}"></div>
   
+  <div id="loader" class="lds-roller hidden">
+  	<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+  </div>
+    
   <div class="content-wrapper">
 	 <div class="container-fluid">
 	 	<div layout:fragment="desktop-page-content"></div>
