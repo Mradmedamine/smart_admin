@@ -25,8 +25,11 @@ public final class ChatBot {
 
 	public static List<String> getSuggestions(ChatMessage message) {
 		if (message.getType() == MessageType.JOIN) {
-			return Arrays.asList(Constants.BotMessages.QUESTION_REGISTER, Constants.BotMessages.QUESTION_CREATE_DOSSIER,
-					Constants.BotMessages.QUESTION_DEPARTMENT, Constants.BotMessages.QUESTION_COMMUNE);
+			return Arrays.asList(
+					Constants.BotMessages.QUESTION_REGISTER, 
+					Constants.BotMessages.QUESTION_CREATE_DOSSIER,
+					Constants.BotMessages.QUESTION_DEPARTMENT, 
+					Constants.BotMessages.QUESTION_COMMUNE);
 		}
 		return Collections.emptyList();
 	}

@@ -33,12 +33,18 @@
 									<span class="custom-file-control"></span>
 								</label>
 					    	</div>
+					    	<div class="btn-group btn-group-toggle" data-toggle="buttons" th:with="documentTypes=${T(org.smart.admin.model.DocumentType).values()}">
+								<label th:each="type : ${documentTypes}" class="btn btn-outline-primary btn-sm">
+									<input type="radio" name="documentType" th:value="${type.name()}" autocomplete="off">
+									<th:block th:text="#{enum.document.type.__${type.name()}__}"/>
+								</label>
+							</div>
 					    </form>
 					</div>
 					<div class="card-footer container">
 						<div class="pull-right"> 
-							<button type="button" class="btn btn-default btn-cancel"><th:block th:text="#{ common.cancel }"></button>
-							<button type="button" class="btn btn-primary btn-save"><th:block th:text="#{ common.save }"></button>
+							<button type="button" class="btn btn-default btn-sm btn-cancel"><th:block th:text="#{ common.cancel }"></button>
+							<button type="button" class="btn btn-primary btn-sm btn-save"><th:block th:text="#{ common.save }"></button>
 						</div>
 					</div>
 				</div>

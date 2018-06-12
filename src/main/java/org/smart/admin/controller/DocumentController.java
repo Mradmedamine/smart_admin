@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.smart.admin.common.util.SecurityUtils;
+import org.smart.admin.model.DocumentType;
 import org.smart.admin.model.entity.Document;
 import org.smart.admin.model.entity.PhysicalFile;
 import org.smart.admin.repository.DocumentRepository;
@@ -49,10 +50,12 @@ public class DocumentController {
 	}
 
 	@ResponseBody
-	@PostMapping(consumes = { "multipart/mixed", MediaType.MULTIPART_FORM_DATA_VALUE })
-	public String saveTemplateDocument(@RequestParam("physicalFile") MultipartFile file, Model model) {
+	@PostMapping(value="/{type}", consumes = { "multipart/mixed", MediaType.MULTIPART_FORM_DATA_VALUE })
+	public String saveDocument(@PathVariable String type, @RequestParam("physicalFile") MultipartFile file,
+			Model model) {
 		Document document = new Document();
 		document.setPhysicalFile(createPhysicalFile(file));
+		document.setDocumentType(DocumentType.valueOf(type));
 		document.setUser(userService.findByUsername(SecurityUtils.findLoggedInUsername()));
 		documentRepository.save(document);
 		return StringUtils.EMPTY;
@@ -60,13 +63,13 @@ public class DocumentController {
 
 	@ResponseBody
 	@DeleteMapping("/{id}")
-	public String deleteTemplateDocument(@PathVariable Long id, Model model) {
+	public String deleteDocument(@PathVariable Long id, Model model) {
 		documentRepository.delete(id);
 		return StringUtils.EMPTY;
 	}
 
 	@GetMapping("/{id}")
-	public void downloadTemplateDocument(@PathVariable Long id, HttpServletResponse response) {
+	public void downloadDocument(@PathVariable Long id, HttpServletResponse response) {
 		Document document = documentRepository.findOne(id);
 		PhysicalFile physicalFile = document.getPhysicalFile();
 		response.setContentType("application/octet-stream");

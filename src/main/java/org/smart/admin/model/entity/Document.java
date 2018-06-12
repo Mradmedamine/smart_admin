@@ -2,15 +2,19 @@ package org.smart.admin.model.entity;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.smart.admin.model.DocumentType;
 
 @Entity
 @Table(name = "documents")
 public class Document extends BaseEntity {
 
 	private User user;
+	private DocumentType documentType;
 	private PhysicalFile physicalFile;
 
 	@Embedded
@@ -30,6 +34,15 @@ public class Document extends BaseEntity {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	@Enumerated
+	public DocumentType getDocumentType() {
+		return documentType;
+	}
+
+	public void setDocumentType(DocumentType documentType) {
+		this.documentType = documentType;
 	}
 
 }

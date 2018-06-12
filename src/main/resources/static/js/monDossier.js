@@ -67,7 +67,7 @@ $(function() {
 
 			$.ajax({
 				type : 'POST',
-				url : "/monDossier",
+				url : '/monDossier/' + formObject['documentType'],
 				data : formData,
 				async : false,
 				cache : false,
