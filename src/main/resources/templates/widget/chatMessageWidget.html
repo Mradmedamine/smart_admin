@@ -13,7 +13,9 @@
 		    <div class="chat-body clearfix">
 		        <div class="header">
 		            <strong th:class="|${ isBot ? '' : 'pull-right' } primary-font|" th:text="${message.sender}"></strong> 
-		            <span th:class="|${ isBot ? 'pull-right' : '' } text-muted smaller|"><i class="fa fa-clock-o"></i> 12 mins ago</span>
+		            <span th:class="|${ isBot ? 'pull-right' : '' } text-muted smaller|"><i class="fa fa-clock-o"></i>
+		            	<span class="relative-time" th:attr="data-time=${message.time}"></span>
+		            </span>
 		        </div>
 		        <p th:utext="${#strings.replace(#strings.escapeJava(message.content),'\n', '&lt;br /&gt;')}" ></p>
 		    </div>

@@ -58,6 +58,7 @@ public class UserLoader extends BaseDataLoader {
 		log.info("Saved Role :" + ADMIN_ROLE + " id: " + adminRole.getId());
 
 		User user = new User();
+		user.setFullname("editorial");
 		user.setUsername("editorial");
 		user.setPassword(bCryptPasswordEncoder.encode("editorial"));
 		user.setPasswordConfirm("editorial");

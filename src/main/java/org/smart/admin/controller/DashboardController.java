@@ -29,7 +29,7 @@ public class DashboardController {
 
 	@GetMapping("/selection/{departmentCode}/{inseeCommune}")
 	public String selection(@PathVariable String departmentCode, @PathVariable String inseeCommune, Model model) {
-		model.addAttribute("commune", DepartmentRepository.getCommune(departmentCode, inseeCommune));
+		model.addAttribute("commune", DepartmentRepository.getTownship(departmentCode, inseeCommune));
 		return "selection";
 	}
 		

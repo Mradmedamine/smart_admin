@@ -19,7 +19,7 @@ public final class ChatBot {
 		answer.setSender("Smart Admin");
 		answer.setType(MessageType.CHAT);
 		answer.setContent(lookupAnswer(message));
-		answer.setTime(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd")));
+		answer.setTime(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
 		return answer;
 	}
 

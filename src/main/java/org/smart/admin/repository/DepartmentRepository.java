@@ -28,11 +28,9 @@ public class DepartmentRepository {
 		return departments.get(key);
 	}
 
-	public static Commune getCommune(String department, String insee) {
-		List<Commune> communes = getDepartment(department).getCommunes();
-		return communes.stream()
-				.filter(commune -> commune.getInseeCommune().equals(insee))
-				.findFirst()
+	public static Commune getTownship(String department, String insee) {
+		List<Commune> townships = getDepartment(department).getCommunes();
+		return townships.stream().filter(township -> township.getInseeCommune().equals(insee)).findFirst()
 				.orElseThrow(IllegalArgumentException::new);
 	}
 

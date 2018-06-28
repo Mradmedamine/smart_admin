@@ -16,7 +16,6 @@ public class UserConnection implements Serializable {
 	private String userId;
 	private String providerId;
 	private String providerUserId;
-	private int rank;
 	private String displayName;
 	private String profileUrl;
 	private String imageUrl;
@@ -24,7 +23,8 @@ public class UserConnection implements Serializable {
 	private String secret;
 	private String refreshToken;
 	private Long expireTime;
-
+	private int rank;
+	
 	@Id
 	@Column(name = "Userid", length = 255, nullable = false)
 	public String getUserId() {

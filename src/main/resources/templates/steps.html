@@ -47,7 +47,8 @@
 				  <div class="card-title mb-1">
 				  	 <strong th:text="${comment.user?.fullname}"></strong>
 				  	 <span class="text-muted smaller pull-right">
-				  	 	<i class="fa fa-clock-o"></i> 12 mins ago
+				  	 	<i class="fa fa-clock-o"></i> 
+				  	 	<span class="relative-time" th:attr="data-time=${#temporals.format(comment.modifiedAt, 'yyyyMMdd HH:mm:ss')}"></span>
 				  	 </span> 
 				  </div>
 				  <p class="card-text small" th:text="${comment.content}"></p>

@@ -27,7 +27,7 @@ public class StepsController {
 
 	@GetMapping("/{departmentCode}/{inseeCommune}")
 	public String steps(@PathVariable String departmentCode, @PathVariable String inseeCommune, Model model) {
-		model.addAttribute("commune", DepartmentRepository.getCommune(departmentCode, inseeCommune));
+		model.addAttribute("commune", DepartmentRepository.getTownship(departmentCode, inseeCommune));
 		model.addAttribute("comments", userCommentRepository.findByInseeCommune(inseeCommune));
 		return "steps";
 	}

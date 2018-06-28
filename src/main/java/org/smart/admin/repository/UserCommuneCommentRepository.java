@@ -10,5 +10,5 @@ public interface UserCommuneCommentRepository extends JpaRepository<UserCommuneC
 	List<UserCommuneComment> findByUser_Username(String username);
 
 	List<UserCommuneComment> findByInseeCommune(String inseeCommune);
-	
+
 }
