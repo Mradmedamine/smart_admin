@@ -26,15 +26,17 @@
 			       		</div>
 					</div>				
 					<div class="card-body">
-					    <form id="action-form" name="fileAction" action="#" method="POST" class="col-md-10 offset-md-1" enctype="multipart/form-data">
-					    	<div class="form-group mt-3">
-					    		<label class="custom-file">
-									<input id="physicalFile" type="file" name="physicalFile" th:attr="data-buttonText=#{common.chooseFile}" required accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.pdf,.txt">
-									<span class="custom-file-control"></span>
-								</label>
+					    <form id="action-form" name="fileAction" action="#" method="POST" class="col-md-10" enctype="multipart/form-data">
+					    	<div class="col-md-10 offset-md-1">
+					    		<div class="form-group">
+						    		<label class="custom-file">
+										<input id="physicalFile" type="file" name="physicalFile" th:attr="data-buttonText=#{common.chooseFile}" required accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.pdf,.txt">
+										<span class="custom-file-control"></span>
+									</label>
+						    	</div>
 					    	</div>
 					    	<div class="btn-group btn-group-toggle" data-toggle="buttons" th:with="documentTypes=${T(org.smart.admin.model.DocumentType).values()}">
-								<label th:each="type : ${documentTypes}" class="btn btn-outline-primary btn-sm">
+								<label th:each="type : ${documentTypes}" class="btn btn-outline-primary btn-sm smaller">
 									<input type="radio" name="documentType" th:value="${type.name()}" autocomplete="off">
 									<th:block th:text="#{enum.document.type.__${type.name()}__}"/>
 								</label>
