@@ -21,7 +21,8 @@ public class PhysicalFile {
 		this.fileName = fileName;
 	}
 
-	@Lob @Basic(fetch = FetchType.LAZY)
+	@Lob 
+	@Basic(fetch = FetchType.LAZY)
     @Column(name="file_content", nullable=true, columnDefinition="MEDIUMBLOB")
 	public byte[] getFileContent() {
 		return fileContent;

@@ -2,6 +2,6 @@ package org.smart.admin.model;
 
 public enum DocumentType {
 
-	PASSPORT, ID;
+	APPLICATION_FORM, PASSPORT, ID, PAYSLIP, JOB_CERTIFICATE;
 
 }
