@@ -1,1 +1,1 @@
-web java -Xmx512m -Dserver.port=$PORT -Dlang.key=es -Dspring.profiles.active=heroku $JAVA_OPTS -jar target/library_uca-1.0.0.jar
+web java -Dserver.port=$PORT -Dspring.profiles.active=heroku $JAVA_OPTS -jar target/smart_admin-1.0.0.jar
