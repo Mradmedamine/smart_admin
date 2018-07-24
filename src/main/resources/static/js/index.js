@@ -5,7 +5,8 @@ $(function() {
 	var communesWidget;
 
 	initCommunesList();
-
+	initGeoLocation();
+	
 	$('#francemap').vectorMap({
 		map : 'france_fr',
 		hoverOpacity : 0.5,
@@ -20,17 +21,7 @@ $(function() {
 			updatePageComponents(code, region);
 		}
 	});
-
-	$('#currentLocationBtn').click(function(e) {
-		useCurrentLocation();
-	});
-	
-	function useCurrentLocation() {
-		if (confirm('Voulez vous utiliser votre position actuelle ?')) {
-			getGeoLocation();
-		}
-	}
-	
+	 
 	function updatePageComponents(code, region) {
 
 		// update info Widget
@@ -102,22 +93,22 @@ $(function() {
 		}
 	}
 
-	function getGeoLocation() {
+	function initGeoLocation() {
 		
-		var ipAddressAjaxCall = $.getJSON('https://api.ipify.org/?format=json');
-		var geoLocationAjaxCall = ipAddressAjaxCall.then(function(data) {
-			return $.getJSON('https://ipapi.co/' + data.ip + '/json');
-		});
-		
-		geoLocationAjaxCall.done(function(data) {
-			if (data.country === FRANCE_COUNTRY_CODE) {
-				alert('Vous êtes en ' + data.city + ' ' + data.country_name);
-			} else {
-				alert("Vous n'êtes pas en France ");
-			}
-		}).fail(function(e) {
-			alert('error Geolocation');
-		});
+		 if (navigator === undefined || navigator.geolocation === undefined) { 
+			 $('#currentLocationBtn').hide(); 
+		 } else {
+			$('#currentLocationBtn').click(function(e) {
+				event.preventDefault();
+				navigator.geolocation.getCurrentPosition(function (position) {
+	                    alert('lat : ' + position.coords.latitude + ' long : ' + position.coords.longitude);
+	                },
+	                function (error) {
+	                    alert("Erreur à l'obtention des données de géolocalisation :" + error);
+	                }
+	            );
+			});
+	     }
 	}
 
 });
