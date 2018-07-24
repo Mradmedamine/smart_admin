@@ -12,7 +12,7 @@
 	<div id="document-container" th:attr="data-document-id=${document.id}">
     	<div class="card">
     		<div>
-    			<small class="btn btn-default btn-sm smaller" th:text="#{enum.document.type.__${document.documentType}__}"></small>
+    			<small class="btn btn-default btn-sm smaller document-type" th:text="#{enum.document.type.__${document.documentType}__}"></small>
 				<a class="btn btn-default btn-delete fa fa-trash-o pull-right"></a>
 			</div>
             <div class="card-body">

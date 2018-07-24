@@ -76,7 +76,7 @@
 	
 	//init Relative time elements
 	updateRelativeTime();
-	setInterval(updateRelativeTime, 3000);
+	setInterval(updateRelativeTime, 2000);
 	
 	function updateRelativeTime() {
 		$('.relative-time').each(function() {

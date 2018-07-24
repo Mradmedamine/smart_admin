@@ -6,6 +6,12 @@
 		cursor: pointer;
 		color: #777;
 		background-color: rgba(0,0,0,.02);
+		.document-type {
+		  text-overflow: ellipsis;
+	      width: 106px;
+	      overflow: hidden;
+	      white-space: nowrap;	
+		}
 		.card-body {
 			padding: 0.5rem 1rem 1.1rem 1rem;
 		}

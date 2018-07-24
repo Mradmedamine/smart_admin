@@ -80,10 +80,9 @@ $(function() {
 			}, 1500);
 		});
 
-		$(communesWidget).find('#searchInput').on('change keyup paste',
-				function(e) {
-					filterCommunes($(this).val().toUpperCase())
-				});
+		$(communesWidget).find('#searchInput').on('change keyup paste', function(e) {
+			filterCommunes($(this).val().toUpperCase())
+		});
 	}
 
 	function filterCommunes(filter) {

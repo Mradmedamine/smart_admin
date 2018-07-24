@@ -1,5 +1,7 @@
 package org.smart.admin.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -16,6 +18,7 @@ public class ChatController {
 
 	@PostMapping("/chat/sendMessage")
 	public String sendMessage(ChatMessage chatMessage, Model model) {
+		chatMessage.setTime(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
 		model.addAttribute("messages", Arrays.asList(chatMessage, ChatBot.answer(chatMessage)));
 		model.addAttribute("suggestions", ChatBot.getSuggestions(chatMessage));
 		return "widget/chatMessageWidget::content";
