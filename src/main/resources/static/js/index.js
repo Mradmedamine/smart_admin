@@ -101,7 +101,19 @@ $(function() {
 			$('#currentLocationBtn').click(function(e) {
 				event.preventDefault();
 				navigator.geolocation.getCurrentPosition(function (position) {
-	                    alert('lat : ' + position.coords.latitude + ' long : ' + position.coords.longitude);
+//	                    alert('lat : ' + position.coords.latitude + ' long : ' + position.coords.longitude);
+	                    $.ajax({
+	            			type : 'GET',
+	            			url : 'http://open.mapquestapi.com/geocoding/v1/reverse?key=CC8ZccdkIvqYozlac0KaE4v7feVzNVBN&location='+ 
+	            			position.coords.latitude +',' + position.coords.longitude +'&includeRoadMetadata=true&includeNearestIntersection=true',
+	            			success : function(result) {
+	            				 alert(result.results[0].locations[0].adminArea5);
+	            			},
+	            			error : function(error) {
+	            				toastr['error']('error occured ');
+	            				$('#toast-container .toast-error').show();
+	            			}
+	            		});
 	                },
 	                function (error) {
 	                    alert("Erreur à l'obtention des données de géolocalisation :" + error);
