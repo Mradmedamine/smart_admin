@@ -104,7 +104,7 @@ $(function() {
 //	                    alert('lat : ' + position.coords.latitude + ' long : ' + position.coords.longitude);
 	                    $.ajax({
 	            			type : 'GET',
-	            			url : 'http://open.mapquestapi.com/geocoding/v1/reverse?key=CC8ZccdkIvqYozlac0KaE4v7feVzNVBN&location='+ 
+	            			url : 'https://open.mapquestapi.com/geocoding/v1/reverse?key=CC8ZccdkIvqYozlac0KaE4v7feVzNVBN&location='+ 
 	            			position.coords.latitude +',' + position.coords.longitude +'&includeRoadMetadata=true&includeNearestIntersection=true',
 	            			success : function(result) {
 	            				 alert(result.results[0].locations[0].adminArea5);
