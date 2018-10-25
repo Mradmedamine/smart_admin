@@ -35,7 +35,7 @@ public class DashboardController {
 	@GetMapping("/selection/{departmentCode}/{inseeCommune}")
 	public String selection(@PathVariable String departmentCode, @PathVariable String inseeCommune, Model model) {
 		model.addAttribute("commune", DepartmentRepository.getTownship(departmentCode, inseeCommune));
-		model.addAttribute("communeInfo", communeService.findByInsee(inseeCommune));
+		model.addAttribute("communeInfo", communeService.findByInsee(departmentCode));
 		return "selection";
 	}
 

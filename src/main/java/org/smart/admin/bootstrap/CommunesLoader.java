@@ -14,15 +14,15 @@ public class CommunesLoader extends BaseDataLoader {
 
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		// if (isCreateMode()) {
-		 {
+//		if (isCreateMode()) 
+		{
 			populateData();
 		}
 	}
 
 	private void populateData() {
 		Commune commune = new Commune();
-		commune.setInsee("77438");
+		commune.setInsee("77");
 		commune.setAddress("https://goo.gl/maps/nrMdGTVEJHk");
 		commune.setText("<div>\r\n" + "<b>Étape 1 - La constitution de votre dossier de demande </b> \r\n"
 				+ "http://www.seine-et-marne.gouv.fr/content/download/30143/238787/file/renouvellement-d-une-carte-de-resident.pdf\r\n"

@@ -49,7 +49,7 @@ public class StepsController {
 		// envoieMail("48");
 		model.addAttribute("commune", DepartmentRepository.getTownship(departmentCode, inseeCommune));
 		model.addAttribute("comments", userCommentRepository.findByInseeCommune(inseeCommune));
-		model.addAttribute("communeInfo", communeService.findByInsee(inseeCommune));
+		model.addAttribute("communeInfo", communeService.findByInsee(departmentCode));
 		return "steps";
 	}
 
