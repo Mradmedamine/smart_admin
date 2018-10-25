@@ -23,7 +23,7 @@ public class CommuneServiceImpl implements CommuneService {
 	}
 
 	public Commune findByInsee(String insee) {
-		return communeRepository.findByInsee(insee);
+		return communeRepository.findByInsee(insee).stream().findFirst().orElse(null);
 	}
 
 }
