@@ -15,6 +15,7 @@ import org.smart.admin.model.DocumentType;
 import org.smart.admin.model.entity.Document;
 import org.smart.admin.model.entity.PhysicalFile;
 import org.smart.admin.repository.DocumentRepository;
+import org.smart.admin.repository.NotificationRepository;
 import org.smart.admin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -23,6 +24,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,6 +45,9 @@ public class DocumentController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private NotificationRepository notificationRepo;
+
 	@GetMapping
 	public String documentsList(Model model) {
 		model.addAttribute("documents", documentRepository.findByUser_Username(SecurityUtils.findLoggedInUsername()));
@@ -50,7 +55,7 @@ public class DocumentController {
 	}
 
 	@ResponseBody
-	@PostMapping(value="/{type}", consumes = { "multipart/mixed", MediaType.MULTIPART_FORM_DATA_VALUE })
+	@PostMapping(value = "/{type}", consumes = { "multipart/mixed", MediaType.MULTIPART_FORM_DATA_VALUE })
 	public String saveDocument(@PathVariable String type, @RequestParam("physicalFile") MultipartFile file,
 			Model model) {
 		Document document = new Document();
@@ -96,6 +101,11 @@ public class DocumentController {
 			// ignore
 		}
 		return null;
+	}
+
+	@ModelAttribute
+	public void addAttributes(Model model) {
+		model.addAttribute("notifs", notificationRepo.findByUser_Username(SecurityUtils.findLoggedInUsername()));
 	}
 
 }

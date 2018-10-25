@@ -1,11 +1,14 @@
 package org.smart.admin.controller;
 
+import org.smart.admin.common.util.SecurityUtils;
 import org.smart.admin.repository.DepartmentRepository;
+import org.smart.admin.repository.NotificationRepository;
 import org.smart.admin.service.CommuneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
@@ -13,6 +16,9 @@ public class DashboardController {
 
 	@Autowired
 	private CommuneService communeService;
+	
+	@Autowired
+	private NotificationRepository notificationRepo;
 
 	@GetMapping({ "/", "/home" })
 	public String home(Model model) {
@@ -39,4 +45,9 @@ public class DashboardController {
 		return "selection";
 	}
 
+	@ModelAttribute
+	public void addAttributes(Model model) {
+		model.addAttribute("notifs", notificationRepo.findByUser_Username(SecurityUtils.findLoggedInUsername()));
+	}
+	
 }

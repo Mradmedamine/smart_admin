@@ -21,20 +21,7 @@
 					Etapes
 				</div>
 				<div class="card-body">
-					<div>
-						<b>Étape 1 - La constitution de votre dossier de demande </b> <br>
-						Assurez-vous d'avoir toutes les pièces exigées. La liste des documents à fournir le jour du rendez-vous est consultable  		
-					</div>
-					<div>
-						<b>Étape 2 - La prise de rendez-vous </b> <br>
-						Pour prendre rendez-vous
-					</div>
-					<div>
-						<b>Étape 3 - L'envoi d'une convocation à votre attention par courriel par le bureau de l'admission au séjour de la sous-préfecture du Raincy</b> <br>
-						Vous devrez vous présenter au rendez-vous fixé et fournir les documents exigés (listés à l'étape 1). Votre dossier devra être complet, sinon il sera refusé. “
-									  "Demande_Nouveau_titreSejour":
-						<small>“Vous devez vous présenter à la sous-préfecture du Raincy - Bureau des étrangers - 57, avenue Thiers - 93344 LE RAINCY CEDEX, les lundi, mardi, jeudi et vendredi entre 13h00 et 16h00.</small>
-					</div>
+					<th:block th:utext="${communeInfo?.text}"/>
 				</div>
 				<div class="card-footer small text-muted">
 					<th:block th:text="${commune.nomCommune}"/> 
