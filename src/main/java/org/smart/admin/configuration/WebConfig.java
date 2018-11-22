@@ -30,14 +30,17 @@ public class WebConfig {
 	public JavaMailSender getJavaMailSender() {
 		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 		mailSender.setHost("smtp.gmail.com");
+		mailSender.setProtocol("smtp");
 		mailSender.setPort(587);
 		mailSender.setUsername("eva.anter1992@gmail.com");
 		mailSender.setPassword("09803855Eva");
 		Properties props = mailSender.getJavaMailProperties();
-		props.put("mail.transport.protocol", "smtp");
-		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.debug", "true");
+	    props.put("mail.smtp.auth", "true");
+	    props.put("mail.smtp.starttls.enable", "true");
+	    props.put("mail.smtps.ssl.checkserveridentity", "true");
+	    props.put("mail.smtps.ssl.trust", "*");
+	    props.put("mail.smtp.host", "smtp.gmail.com");
+	    props.put("mail.smtp.port", "587");
 		return mailSender;
 	}
 

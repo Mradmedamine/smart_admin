@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{desktop-layout}">
+
+<th:block layout:fragment="desktop-page-content">
+
+	<!-- Breadcrumbs-->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="#">Contact</a>
+		</li>
+	</ol>
+	<div class="row">
+		<div class="col-lg-8">
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-newspaper-o"></i>&nbsp;
+					Contact
+				</div>
+				<form method="POST" th:action="@{/contact/__${insee}__}">
+					<div class="card-body">
+						<span th:text="${message}"></span>
+						<textarea name="body" rows="10" cols="70"></textarea>
+					</div>
+					<div class="card-footer small text-muted">
+						<button type="submit" class="btn btn-primary btn-sm btn-save"><th:block th:text="#{ common.submit }"></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</th:block>
+
+</html>
