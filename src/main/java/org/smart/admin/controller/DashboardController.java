@@ -43,7 +43,7 @@ public class DashboardController {
 	@PostMapping({ "/contact/{insee}" })
 	public String sendMessage(@PathVariable String insee, String body, Model model) {
 		mailService.sendSignalMail(body, insee);
-		return "redirect:/contact?success=true";
+		return "redirect:/contact/" + insee + "?success";
 	}
 
 	@GetMapping("/department/info/{departmentCode}")

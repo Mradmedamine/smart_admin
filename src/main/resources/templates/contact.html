@@ -20,9 +20,10 @@
 					<i class="fa fa-newspaper-o"></i>&nbsp;
 					Contact
 				</div>
+				<span th:text="${message}"></span>
 				<form method="POST" th:action="@{/contact/__${insee}__}">
 					<div class="card-body">
-						<span th:text="${message}"></span>
+						
 						<textarea name="body" rows="10" cols="70"></textarea>
 					</div>
 					<div class="card-footer small text-muted">

@@ -34,7 +34,7 @@ public class MailServiceImpl implements MailService {
 
 	@Override
 	public void sendSignalMail(String body, String insee) {
-		sendMail("eva.anter1992@gmail.com", "mradmohamedamine@gmail.com",
+		sendMail("eva.anter1992@gmail.com", "eva.anter1992@gmail.com",
 				"Réclamation: Smart Admin: Prefecture INSEE : " + insee, body);
 	}
 
