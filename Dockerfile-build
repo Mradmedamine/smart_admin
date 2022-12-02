@@ -1,0 +1,7 @@
+FROM maven:3.3.9-jdk-8-onbuild-alpine
+
+COPY . /smart_admin
+
+WORKDIR /smart_admin
+
+CMD mvn install
