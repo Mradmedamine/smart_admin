@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  database:
+    image: mysql:5.7.40
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: smart_admin
+      MYSQL_USER: smartadmin
+      MYSQL_PASSWORD: smartadmin
+      MYSQL_TCP_PORT: 3306
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
