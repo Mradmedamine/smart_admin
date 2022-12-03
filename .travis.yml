@@ -1,16 +1,9 @@
 sudo: required
-language: java
-jdk: oraclejdk8
-
 services:
   - docker
 
-script:
-  - ./mvnw clean install -B
-  -
-#before_install:
-#  - docker build -t amine/smart_admin-build . -f Dockerfile-build
-#
-#script:
-#  - docker run amine/smart_admin-build
+before_install:
+  - docker build -t amine/smart_admin-build . -f Dockerfile-build
 
+script:
+  - docker run amine/smart_admin-build
